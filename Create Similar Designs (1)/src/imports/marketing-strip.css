@@ -1,0 +1,89 @@
+🔲 Design Concept
+Objective:
+
+Elegant
+
+Non-intrusive
+
+Premium
+
+Clean typography
+
+Soft hover animation
+
+Mobile responsive
+
+💻 HTML Structure (Place Just Above </body>)
+<!-- Marketing Partner Strip -->
+<div class="marketing-strip">
+  <div class="marketing-content">
+    <span>Digital Growth Partner</span>
+    <a href="https://trendzmarketers.com/" target="_blank">
+      Trend Z Marketing
+    </a>
+  </div>
+</div>
+🎨 CSS Styling (Ultra Sleek Premium Look)
+/* Marketing Partner Bottom Strip */
+.marketing-strip {
+    background: #000000;
+    padding: 12px 0;
+    width: 100%;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.marketing-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.marketing-content a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.marketing-content a::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 1px;
+    left: 0;
+    bottom: -3px;
+    background: #ffffff;
+    transition: width 0.3s ease;
+}
+
+.marketing-content a:hover {
+    opacity: 0.8;
+}
+
+.marketing-content a:hover::after {
+    width: 100%;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .marketing-content {
+        font-size: 11px;
+        flex-direction: column;
+        gap: 3px;
+    }
+}
+✨ How It Will Look
+
+Black background
+Thin subtle top border
+Muted “Digital Growth Partner” text
+Crisp white “Trend Z Marketing”
+Smooth underline animation on hover
+
+Very Apple-like. Very corporate. Very subtle.
