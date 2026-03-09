@@ -5,6 +5,7 @@ import { useState } from "react";
 
 interface TherapyData {
   title: string;
+  image: string;
   tagline: string;
   description: string;
   mechanism: string;
@@ -17,11 +18,27 @@ interface TherapyData {
   research: { title: string; source: string }[];
   faqs: { q: string; a: string }[];
   ctaLine: string;
+  informationalVideo?: {
+    videoId: string;
+    description: string;
+    points: { title: string; desc: string }[];
+    bullets: string[];
+    conclusion: string;
+  };
+  testimonials?: {
+    videoId: string;
+    title: string;
+    description: string;
+    whyItHelps?: { title: string; desc: string };
+    therapiesUsed: string[];
+    about?: string;
+  }[];
 }
 
 const therapyData: Record<string, TherapyData> = {
   hbot: {
     title: "Hyperbaric Oxygen Therapy (HBOT)",
+    image: "/images/therapies/hbot.png",
     tagline: "Advanced oxygen-based recovery for cardiac, pulmonary & neurological healing.",
     description: "Hyperbaric Oxygen Therapy involves breathing pure oxygen in a pressurized chamber at 1.5–3 times normal atmospheric pressure. This dramatically increases oxygen concentration in the blood plasma, promoting rapid tissue repair, reducing inflammation, stimulating angiogenesis (new blood vessel formation), and activating cellular repair mechanisms at a molecular level.",
     mechanism: "Under elevated pressure, blood plasma dissolves up to 20 times more oxygen than at normal atmospheric conditions. This oxygen-rich plasma reaches tissues that red blood cells cannot easily access, including areas with compromised circulation. The increased oxygen triggers a cascade of healing responses including stem cell mobilization, collagen synthesis, and immune cell activation.",
@@ -72,61 +89,122 @@ const therapyData: Record<string, TherapyData> = {
       { q: "Can elderly patients undergo HBOT?", a: "Yes, HBOT is safe for elderly patients. Pre-treatment screening ensures suitability, and our team provides full assistance throughout every session." },
     ],
     ctaLine: "Restore Oxygen. Restore Function. Restore Life.",
-  },
-  cryotherapy: {
-    title: "Whole Body Cryotherapy",
-    tagline: "Controlled cold exposure for inflammation reduction, pain relief & accelerated recovery.",
-    description: "Whole Body Cryotherapy exposes the body to extremely cold temperatures (–110°C to –140°C) for 2–3 minutes in a controlled cryo-chamber. This triggers a powerful systemic anti-inflammatory response, releases endorphins, boosts circulation, and accelerates the body's natural recovery processes. Originally developed for treating rheumatoid arthritis, it is now widely used in rehabilitation medicine.",
-    mechanism: "When exposed to extreme cold, peripheral blood vessels constrict (vasoconstriction), redirecting blood to core organs where it becomes enriched with oxygen and nutrients. Upon exiting the chamber, blood vessels dilate (vasodilation), flooding tissues with this enriched blood. This cycle reduces inflammation, clears metabolic waste, and stimulates the release of anti-inflammatory cytokines and endorphins.",
-    steps: [
-      { title: "Rapid Cooling Exposure", desc: "The body is exposed to temperatures between –110°C to –140°C in a controlled cryo-chamber for 2–3 minutes." },
-      { title: "Vasoconstriction Response", desc: "Peripheral blood vessels constrict, redirecting blood to the body's core organs for oxygen and nutrient enrichment." },
-      { title: "Endorphin & Cytokine Release", desc: "The nervous system triggers the release of endorphins, norepinephrine, and anti-inflammatory cytokines." },
-      { title: "Post-Session Vasodilation", desc: "Upon exiting, blood vessels dilate and nutrient-rich blood floods back to peripheral tissues." },
-      { title: "Systemic Recovery Activation", desc: "The body's natural repair mechanisms are amplified — reducing pain, swelling, and accelerating tissue healing." },
+    testimonials: [
+      {
+        videoId: "m7go5EbWEKs",
+        title: "HBOT Helped Improve His EF from 17% to 38% | Real Recovery Story | Vizag",
+        description: "This patient came to us with a critically low Ejection Fraction (EF) of 17%, struggling with breathlessness, severe fatigue, and difficulty performing daily activities. After undergoing Hyperbaric Oxygen Therapy (HBOT) along with strict diet guidance and physiotherapy support, his EF improved from 17% to 38%, and his overall quality of life changed dramatically.",
+        whyItHelps: {
+          title: "Why HBOT Helps in Cardiac Support",
+          desc: "HBOT increases oxygen delivery to tissues, reduces inflammation, enhances mitochondrial function, and supports recovery in patients with low EF when done under medical supervision."
+        },
+        therapiesUsed: [
+          "Hyperbaric Oxygen Therapy (HBOT)",
+          "Physiotherapy-guided recovery",
+          "Customized diet plan",
+          "Continuous monitoring"
+        ],
+        about: "Pranavayu is Vizag's advanced rehabilitation and wellness center offering: HBOT, Pelvic Chair Therapy, Ozone Therapy, Zero Gravity Gait Trainer, Shockwave Therapy, Postpartum Rehab, Neuro Rehab, Cardio-Pulmonary Care, and more."
+      }
     ],
-    conditions: ["Post-Surgical Inflammation", "Chronic Pain Syndromes", "Rheumatoid Arthritis", "Fibromyalgia", "Sports Injuries", "Muscle Spasticity"],
+    informationalVideo: {
+      videoId: "P2hr90Za8mY",
+      description: "Welcome to Pranavayu Rehabilitation Center, Visakhapatnam, where we bring you one of the most advanced therapies in modern rehabilitation – Hyperbaric Oxygen Therapy (HBOT). HBOT is a non-invasive and clinically proven treatment in which patients breathe 100% pure oxygen in a specially designed pressurized chamber. This process significantly increases oxygen levels in the blood, helping the body repair damaged tissues, reduce inflammation, and speed up healing.",
+      points: [
+        { title: "Accelerates Recovery", desc: "Speeds up healing from injuries, surgeries, and chronic wounds." },
+        { title: "Neurological Health", desc: "Supports brain health including stroke recovery, neuropathy, and cognitive function." },
+        { title: "Boosts Immunity & Circulation", desc: "Enhances oxygen delivery to all parts of the body." },
+        { title: "Reduces Fatigue", desc: "Improves overall energy levels and reduces lingering fatigue." },
+        { title: "Promotes Wellness", desc: "Encourages overall body wellness and rejuvenation." }
+      ],
+      bullets: [
+        "Safe, non-invasive, and painless",
+        "Backed by global research and clinical success",
+        "Tailored to your unique recovery needs"
+      ],
+      conclusion: "At Pranavayu, we combine advanced medical technology with compassionate care, under the supervision of trained professionals. We are committed to “Breathing Life into Wellness” and helping every patient achieve a healthier, stronger, and more active life."
+    }
+  },
+  "pelvic-chair": {
+    title: "Pelvic Chair Therapy",
+    image: "/images/therapies/pelvic-chair.png",
+    tagline: "Non-invasive electromagnetic stimulation for pelvic floor strengthening and control.",
+    description: "Pelvic Chair Therapy utilizes High-Intensity Focused Electromagnetic (HIFEM) technology to induce thousands of supramaximal pelvic floor muscle contractions in a single session. These contractions are far more intense than voluntary Kegel exercises, deeply stimulating the entire pelvic floor musculature to restore neuromuscular control, improve strength, and support postpartum recovery and urological health.",
+    informationalVideo: {
+      videoId: "INnt7rYvfZo",
+      description: "Experience Vizag's most advanced non-surgical solution for urinary incontinence, pelvic weakness, and postpartum recovery. Pranavayu Rehabilitation Center now offers Pelvic Chair Therapy, a cutting-edge treatment that strengthens deep pelvic floor muscles using high-intensity electromagnetic stimulation.",
+      bullets: [
+        "Delivers the equivalent of 12,000+ Kegel contractions per session",
+        "Restores bladder control, confidence, and comfort",
+        "Non-surgical, painless procedure with zero downtime"
+      ],
+      conclusion: "Whether you are recovering from childbirth, managing aging-related incontinence, or simply seeking to strengthen your core and pelvic stability, Pelvic Chair Therapy offers a convenient, walk-in/walk-out solution to regain your pelvic health.",
+      points: [
+        {
+          title: "Incontinence & Weakness",
+          desc: "Ideal for women with postpartum weakness, seniors experiencing urine leakage, and anyone with stress or urge incontinence."
+        },
+        {
+          title: "Core & Pelvic Stability",
+          desc: "Supports individuals with reduced pelvic stability, weak core muscles, or those unable to perform Kegel exercises consistently."
+        },
+        {
+          title: "Pain Management & Wellness",
+          desc: "Beneficial for both men and women experiencing pelvic pain, while also significantly improving sexual wellness."
+        }
+      ]
+    },
+    mechanism: "The therapy delivers focused electromagnetic energy that penetrates the pelvic floor tissues, directly stimulating the motor neurons. This bypasses the brain's natural limitations, forcing the pelvic floor muscles to contract at 100% intensity (supramaximal contractions). This rapid, intense workout promotes muscle hypertrophy (growth of muscle fibers), enhances neuromuscular efficiency, and rebuilds the support structure for pelvic organs.",
+    steps: [
+      { title: "Non-Invasive Positioning", desc: "The patient sits fully clothed on the specialized electromagnetic chair." },
+      { title: "HIFEM Stimulation", desc: "High-Intensity Focused Electromagnetic energy is delivered to the pelvic floor." },
+      { title: "Supramaximal Contractions", desc: "Thousands of deep, intense muscle contractions are induced, impossible to achieve voluntarily." },
+      { title: "Neuromuscular Re-education", desc: "The targeted stimulation re-establishes the mind-muscle connection and control." },
+      { title: "Tissue Strengthening", desc: "The intense contractions force the muscles to adapt, resulting in increased strength and tone." },
+    ],
+    conditions: ["Urinary Incontinence", "Postpartum Pelvic Floor Weakness", "Pelvic Organ Prolapse (Mild to Moderate)", "Erectile Dysfunction (Vascular/Muscular etiology)", "Pelvic Pain Syndromes", "Prostatectomy Recovery"],
     benefits: [
-      "Reduces systemic inflammation by up to 50%",
-      "Provides rapid pain relief through endorphin release",
-      "Accelerates muscle and joint recovery post-surgery",
-      "Improves sleep quality and reduces stress hormones",
-      "Boosts metabolism and cellular energy production",
-      "Enhances mood through natural endorphin pathways",
+      "Completely non-invasive and performed fully clothed",
+      "Equivalent to performing thousands of Kegels in 30 minutes",
+      "Significant improvement in urinary continence and bladder control",
+      "Accelerates postpartum pelvic floor rehabilitation",
+      "Enhances overall core stability and posture",
+      "Improves sexual wellness and function",
     ],
     safety: [
-      "Medical-grade cryotherapy chamber with precise temperature control",
-      "Sessions supervised by trained medical staff",
-      "Pre-session health screening and vitals check",
-      "Continuous monitoring with emergency stop capability",
+      "FDA-cleared and clinically proven technology",
+      "Painless procedure with no downtime or recovery period",
+      "Supervised by trained rehabilitation professionals",
+      "No anesthesia, needles, or invasive probes required",
     ],
     contraindications: [
-      "Uncontrolled hypertension",
-      "Raynaud's disease (severe cold sensitivity)",
-      "Acute cardiac events within the last 6 months",
+      "Pacemakers or internal defibrillators",
+      "Metal implants in the treatment area (hips/pelvis)",
       "Pregnancy",
+      "Severe bleeding disorders or active menstruation",
     ],
     procedure: [
-      { label: "Session Duration", value: "2–3 minutes per session" },
-      { label: "Treatment Course", value: "10–20 sessions depending on condition" },
-      { label: "Comfort Level", value: "Intense cold sensation that subsides quickly" },
-      { label: "Recovery Time", value: "No downtime — resume normal activities immediately" },
+      { label: "Session Duration", value: "30 minutes per session" },
+      { label: "Treatment Course", value: "Typically 6 sessions over 3 weeks" },
+      { label: "Comfort Level", value: "Tingling sensation and strong muscle contractions, but not painful" },
+      { label: "Recovery Time", value: "Immediate return to daily activities" },
     ],
     research: [
-      { title: "Whole body cryotherapy in rehabilitation", source: "European Journal of Applied Physiology" },
-      { title: "Cryotherapy for chronic inflammation", source: "Journal of Clinical Medicine, 2022" },
-      { title: "Cold exposure and pain management", source: "Pain Medicine Journal, 2021" },
+      { title: "HIFEM technology for urinary incontinence", source: "Lasers in Surgery and Medicine, 2019" },
+      { title: "Pelvic floor muscle strengthening post-delivery", source: "Journal of Women's Health Care, 2020" },
+      { title: "Non-invasive treatment of erectile dysfunction", source: "Sexual Medicine Reviews, 2021" },
     ],
     faqs: [
-      { q: "Is cryotherapy safe for heart patients?", a: "Cryotherapy can be safe for stable cardiac patients, but requires careful screening. Dr. Lukka evaluates each patient's cardiac status before recommending this therapy." },
-      { q: "How cold does it actually get?", a: "The chamber reaches –110°C to –140°C. While this sounds extreme, sessions last only 2–3 minutes and are closely monitored for safety." },
-      { q: "How soon will I feel results?", a: "Most patients report pain relief and improved energy after the very first session. Cumulative benefits build over 10–20 sessions." },
-      { q: "Can elderly patients use cryotherapy?", a: "Yes, with proper medical screening. Session duration and temperature may be adjusted based on individual tolerance and medical history." },
+      { q: "Do I need to undress for the treatment?", a: "No, Pelvic Chair Therapy is completely non-invasive. You remain fully clothed and comfortably seated during the entire 30-minute session." },
+      { q: "Is the treatment painful?", a: "The procedure is not painful. You will feel tingling and distinct, strong muscle contractions in the pelvic floor area, which most patients describe as an unusual but tolerable sensation." },
+      { q: "How soon will I see results?", a: "Some patients observe improvements after just 1 or 2 sessions, but optimal results typically emerge a few weeks after completing the full recommended course of 6 treatments." },
+      { q: "Who is a good candidate for this therapy?", a: "It is ideal for women recovering from childbirth, individuals dealing with stress or urge incontinence, and men seeking pelvic floor strengthening post-prostate surgery or for sexual wellness." },
     ],
-    ctaLine: "Reduce Pain. Reduce Inflammation. Restore Vitality.",
+    ctaLine: "Regain Control. Rebuild Strength. Restore Confidence.",
   },
   shockwave: {
     title: "Extracorporeal Shockwave Therapy",
+    image: "/images/therapies/shockwave.webp",
     tagline: "Acoustic wave technology for chronic pain resolution and tissue regeneration.",
     description: "Extracorporeal Shockwave Therapy (ESWT) delivers focused acoustic pressure waves to targeted areas of the body. These shockwaves stimulate neovascularization (new blood vessel growth), break down calcified deposits, release growth factors, and trigger the body's natural repair processes. It is particularly effective for chronic musculoskeletal conditions that have not responded to conventional treatment.",
     mechanism: "Acoustic shockwaves create controlled micro-trauma at the cellular level, which stimulates the body's healing response. The mechanical energy increases cell membrane permeability, promotes the release of growth factors (VEGF, eNOS), and activates stem cell recruitment to the treated area. This results in accelerated tissue remodeling, pain reduction through nerve desensitization, and improved blood flow.",
@@ -179,6 +257,7 @@ const therapyData: Record<string, TherapyData> = {
   },
   hydrogen: {
     title: "Hydrogen Inhalation Therapy",
+    image: "/images/therapies/hydrogen-inhalation.png",
     tagline: "Molecular hydrogen for powerful antioxidant protection and cellular recovery.",
     description: "Hydrogen Inhalation Therapy delivers molecular hydrogen (H2) gas through a nasal cannula for direct absorption into the bloodstream. As the smallest molecule in existence, hydrogen readily penetrates cell membranes and the blood-brain barrier, selectively neutralizing the most toxic free radicals (hydroxyl radicals) while preserving beneficial reactive oxygen species that are essential for normal cellular signaling.",
     mechanism: "Molecular hydrogen works through multiple pathways: it selectively scavenges hydroxyl radicals (the most cytotoxic ROS), upregulates endogenous antioxidant enzymes (SOD, catalase, GPx), modulates inflammatory signaling pathways (NF-kB), and activates the Nrf2 pathway — the body's master antioxidant regulator. Unlike conventional antioxidants, H2 does not disrupt normal redox signaling, making it uniquely safe and effective.",
@@ -228,9 +307,31 @@ const therapyData: Record<string, TherapyData> = {
       { q: "How soon will I notice benefits?", a: "Some patients notice improved energy and mental clarity within the first few sessions. Measurable biomarker improvements typically appear after 10+ sessions." },
     ],
     ctaLine: "Neutralize Damage. Protect Cells. Restore Balance.",
+    informationalVideo: {
+      videoId: "NU3tfY5wdfQ",
+      description: "Discover the science-backed benefits of Hydrogen Inhalation Therapy at Pranavayu Rehabilitation Center, Visakhapatnam. This powerful therapy uses medical-grade molecular hydrogen to reduce inflammation, boost cellular energy, and support overall healing. It is widely used for chronic fatigue, aging, respiratory issues, cardiovascular health, and neurological recovery.",
+      points: [
+        { title: "Reduces Inflammation", desc: "Targets inflammation at the cellular level for deep healing." },
+        { title: "Enhances Immunity", desc: "Boosts immune function and improves energy production." },
+        { title: "Supports Chronic Recovery", desc: "Helps recovery from chronic fatigue, stress, and lifestyle conditions." },
+        { title: "Cardiovascular & Respiratory Health", desc: "Improves lung function and supports heart health." },
+        { title: "Cognitive Clarity", desc: "Boosts neurological support and mental sharpness." },
+        { title: "Anti-Aging Benefits", desc: "Combats oxidative stress to slow the aging process." },
+        { title: "Natural Detox", desc: "Helps the body detox safely and naturally." },
+        { title: "Safe for All Ages", desc: "Non-invasive and suitable for all age groups including senior citizens." }
+      ],
+      bullets: [
+        "Safe, non-invasive, and painless",
+        "Medical-grade hydrogen delivery systems",
+        "Suitable for senior citizens and chronic conditions",
+        "Can be combined with HBOT and other therapies"
+      ],
+      conclusion: "At Pranavayu, we combine advanced medical technology with compassionate care. Our Hydrogen Inhalation Therapy is ideal for senior citizens, people with respiratory or cardiovascular issues, individuals with high stress or fatigue, and those seeking anti-aging or wellness therapies."
+    }
   },
   gait: {
     title: "Zero Gravity Gait Training",
+    image: "/images/therapies/gait-training.jpg",
     tagline: "Body weight support technology for safe, pain-free mobility rehabilitation.",
     description: "Zero Gravity Gait Training uses an advanced anti-gravity treadmill system that can reduce the patient's effective body weight by up to 80%. This allows patients who cannot bear full weight — due to surgery, stroke, or neurological conditions — to practice walking and movement patterns safely and comfortably, promoting neuroplasticity and muscle re-education without risk of falls or re-injury.",
     mechanism: "The system uses differential air pressure technology to create a precisely calibrated upward lifting force around the lower body. By reducing effective body weight in 1% increments, patients can practice walking at any comfortable weight-bearing level. This enables earlier mobilization, reduces joint stress, promotes proper gait mechanics, and allows higher-intensity training than would otherwise be possible — all while the brain receives natural walking feedback that drives neuroplastic recovery.",
@@ -283,6 +384,7 @@ const therapyData: Record<string, TherapyData> = {
   },
   postpregnancy: {
     title: "Post-Pregnancy Rehabilitation",
+    image: "/images/therapies/gait-training.jpg", // Using gait training as fallback for now
     tagline: "Specialized recovery for cardiovascular, musculoskeletal & pelvic floor restoration.",
     description: "Post-Pregnancy Rehabilitation is a comprehensive recovery program addressing the unique physiological changes that occur during pregnancy and childbirth. This medically supervised program focuses on cardiovascular reconditioning, core and pelvic floor rehabilitation, diastasis recti correction, musculoskeletal recovery, and overall wellness restoration. Under Dr. Lukka's guidance, the program integrates cardiopulmonary expertise with targeted rehabilitation protocols.",
     mechanism: "Pregnancy causes significant cardiovascular, musculoskeletal, and hormonal changes that require structured rehabilitation for optimal recovery. Our protocol addresses each system: cardiovascular reconditioning through graded aerobic exercise, core restoration through targeted deep muscle reactivation, pelvic floor rehabilitation through progressive strengthening, and hormonal balance support through lifestyle and exercise programming. The cardiopulmonary monitoring expertise of Dr. Lukka ensures safe progression throughout.",
@@ -339,6 +441,7 @@ export function TherapyPage() {
   const { therapyId } = useParams();
   const therapy = therapyData[therapyId || ""];
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [infoExpanded, setInfoExpanded] = useState(false);
 
   if (!therapy) {
     return (
@@ -433,6 +536,136 @@ export function TherapyPage() {
           </div>
         </div>
       </section>
+
+      {/* Informational Video Section */}
+      {therapy.informationalVideo && (
+        <section className="py-16 bg-white border-b border-gray-100">
+          <div className="max-w-6xl mx-auto px-5 lg:px-8">
+            <div className="flex flex-col lg:flex-row gap-10 lg:gap-14 items-start">
+              {/* Video Side */}
+              <div className="w-full lg:w-5/12 flex flex-col gap-8">
+                <div className="rounded-3xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.08)] bg-black relative border border-gray-100">
+                  <div className="pt-[56.25%] relative w-full">
+                    <iframe
+                      className="absolute inset-0 w-full h-full"
+                      src={`https://www.youtube.com/embed/${therapy.informationalVideo.videoId}?rel=0`}
+                      title="How it works"
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      referrerPolicy="strict-origin-when-cross-origin"
+                      allowFullScreen
+                    ></iframe>
+                  </div>
+                </div>
+
+                <div className="hidden lg:block">
+                  <div className="bg-[#f8fafb] rounded-2xl p-6 border border-gray-100 mb-6">
+                    <p className="text-[#1a3a4a] text-[12px] uppercase tracking-wider mb-4" style={{ fontWeight: 600 }}>
+                      Why Choose Pranavayu?
+                    </p>
+                    <div className="flex flex-col gap-2.5">
+                      {therapy.informationalVideo.bullets.map((bullet, idx) => (
+                        <div key={idx} className="flex items-center gap-3">
+                          <div className="w-1.5 h-1.5 rounded-full bg-[#0FACA3] shrink-0" />
+                          <span className="text-gray-600 text-[13.5px]">{bullet}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <p className="text-gray-400 text-[13px] italic bg-[#0FACA3]/5 p-4 rounded-xl border border-[#0FACA3]/10" style={{ lineHeight: 1.6 }}>
+                    {therapy.informationalVideo.conclusion}
+                  </p>
+                </div>
+              </div>
+
+              {/* Content Side */}
+              <div className="w-full lg:w-7/12">
+                <div className="flex items-center gap-2 mb-4">
+                  <FileText size={18} className="text-[#0FACA3]" />
+                  <h2 className="text-[#1a3a4a] text-[20px] md:text-[24px]" style={{ fontWeight: 600 }}>
+                    Understanding {therapy.title}
+                  </h2>
+                </div>
+                <p className="text-gray-500 text-[14.5px] mb-8" style={{ lineHeight: 1.7 }}>
+                  {therapy.informationalVideo.description}
+                </p>
+
+                <h3 className="text-[#1a3a4a] text-[16px] mb-5" style={{ fontWeight: 600 }}>
+                  How It Helps You
+                </h3>
+                <div className="space-y-4 mb-4">
+                  {therapy.informationalVideo.points.slice(0, 2).map((point, idx) => (
+                    <div key={`point-${idx}`} className="flex gap-3 items-start">
+                      <div className="w-6 h-6 rounded-full bg-[#0FACA3]/10 flex items-center justify-center shrink-0 mt-0.5">
+                        <Check size={12} className="text-[#0FACA3]" strokeWidth={3} />
+                      </div>
+                      <div>
+                        <span className="text-[#1a3a4a] text-[14px]" style={{ fontWeight: 600 }}>{point.title}: </span>
+                        <span className="text-gray-500 text-[13.5px]" style={{ lineHeight: 1.6 }}>{point.desc}</span>
+                      </div>
+                    </div>
+                  ))}
+
+                  {/* Desktop Only: Expandable block */}
+                  <motion.div
+                    initial={false}
+                    animate={{ height: infoExpanded ? "auto" : 0, opacity: infoExpanded ? 1 : 0 }}
+                    className="overflow-hidden space-y-4"
+                  >
+                    {therapy.informationalVideo.points.slice(2).map((point, idx) => (
+                      <div key={`point-hidden-${idx}`} className="flex gap-3 items-start">
+                        <div className="w-6 h-6 rounded-full bg-[#0FACA3]/10 flex items-center justify-center shrink-0 mt-0.5">
+                          <Check size={12} className="text-[#0FACA3]" strokeWidth={3} />
+                        </div>
+                        <div>
+                          <span className="text-[#1a3a4a] text-[14px]" style={{ fontWeight: 600 }}>{point.title}: </span>
+                          <span className="text-gray-500 text-[13.5px]" style={{ lineHeight: 1.6 }}>{point.desc}</span>
+                        </div>
+                      </div>
+                    ))}
+                  </motion.div>
+                </div>
+
+                <div className="block lg:hidden mt-8 mb-6">
+                  <div className="bg-[#f8fafb] rounded-2xl p-6 border border-gray-100 mb-6">
+                    <p className="text-[#1a3a4a] text-[12px] uppercase tracking-wider mb-4" style={{ fontWeight: 600 }}>
+                      Why Choose Pranavayu?
+                    </p>
+                    <div className="flex flex-col gap-2.5">
+                      {therapy.informationalVideo.bullets.map((bullet, idx) => (
+                        <div key={idx} className="flex items-center gap-3">
+                          <div className="w-1.5 h-1.5 rounded-full bg-[#0FACA3] shrink-0" />
+                          <span className="text-gray-600 text-[13.5px]">{bullet}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <p className="text-gray-400 text-[13px] italic bg-[#0FACA3]/5 p-4 rounded-xl border border-[#0FACA3]/10" style={{ lineHeight: 1.6 }}>
+                    {therapy.informationalVideo.conclusion}
+                  </p>
+                </div>
+
+                {therapy.informationalVideo.points.length > 2 && (
+                  <button
+                    onClick={() => setInfoExpanded(!infoExpanded)}
+                    className="mt-2 flex items-center gap-2 text-[#0FACA3] text-[14px] hover:text-[#0b827b] transition-colors w-fit group"
+                    style={{ fontWeight: 500 }}
+                  >
+                    <FileText size={16} />
+                    {infoExpanded ? "Show less" : "Read the full story"}
+                    <ChevronDown
+                      size={16}
+                      className={`transition-transform duration-300 ${infoExpanded ? "rotate-180" : "group-hover:translate-y-0.5"}`}
+                    />
+                  </button>
+                )}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Conditions + Benefits side by side */}
       <section className="py-14 bg-white">
@@ -542,6 +775,110 @@ export function TherapyPage() {
           </div>
         </div>
       </section>
+
+      {/* Testimonials */}
+      {therapy.testimonials && therapy.testimonials.length > 0 && (
+        <section className="py-14 bg-[#f8fafb]">
+          <div className="max-w-6xl mx-auto px-5 lg:px-8">
+            <div className="flex items-center gap-2 mb-8 justify-center">
+              <Users size={18} className="text-[#0FACA3]" />
+              <h2 className="text-[#1a3a4a] text-[20px] md:text-[24px]" style={{ fontWeight: 600 }}>
+                Real Patient Stories
+              </h2>
+            </div>
+
+            <div className="space-y-12">
+              {therapy.testimonials.map((testi, i) => {
+                const [isExpanded, setIsExpanded] = useState(false);
+                return (
+                  <div key={i} className="bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] flex flex-col lg:flex-row">
+                    {/* Video Side */}
+                    <div className="lg:w-1/2 p-2 relative flex items-center justify-center">
+                      <div className="w-full relative pt-[56.25%] rounded-2xl overflow-hidden bg-black">
+                        <iframe
+                          className="absolute inset-0 w-[101%] h-[101%] -left-[0.5%] -top-[0.5%]"
+                          src={`https://www.youtube.com/embed/${testi.videoId}?rel=0`}
+                          title={testi.title}
+                          frameBorder="0"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                          referrerPolicy="strict-origin-when-cross-origin"
+                          allowFullScreen
+                        ></iframe>
+                      </div>
+                    </div>
+
+                    {/* Content Side */}
+                    <div className="lg:w-1/2 p-7 md:p-10 flex flex-col justify-center">
+                      <h3 className="text-[#1a3a4a] text-[18px] md:text-[22px] mb-4 leading-snug" style={{ fontWeight: 600 }}>
+                        "{testi.title}"
+                      </h3>
+                      <p className="text-gray-500 text-[14px] md:text-[15px] mb-6" style={{ lineHeight: 1.7 }}>
+                        {testi.description}
+                      </p>
+
+                      <motion.div
+                        initial={false}
+                        animate={{ height: isExpanded ? "auto" : 0, opacity: isExpanded ? 1 : 0 }}
+                        className="overflow-hidden"
+                      >
+                        {testi.whyItHelps && (
+                          <div className="mb-6 pt-2">
+                            <h4 className="text-[#1a3a4a] text-[15px] mb-2" style={{ fontWeight: 600 }}>
+                              {testi.whyItHelps.title}
+                            </h4>
+                            <p className="text-gray-500 text-[13.5px]" style={{ lineHeight: 1.6 }}>
+                              {testi.whyItHelps.desc}
+                            </p>
+                          </div>
+                        )}
+
+                        <div className="bg-[#f8fafb] rounded-2xl p-5 border border-gray-100 mb-6">
+                          <p className="text-[#1a3a4a] text-[12px] uppercase tracking-wider mb-3" style={{ fontWeight: 600 }}>
+                            Therapies Used
+                          </p>
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-2 gap-x-4">
+                            {testi.therapiesUsed.map((highlight, idx) => (
+                              <div key={idx} className="flex items-start gap-2">
+                                <Check size={14} className="text-[#0FACA3] mt-[3px] shrink-0" strokeWidth={2.5} />
+                                <span className="text-gray-600 text-[13px] leading-tight">{highlight}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+
+                        {testi.about && (
+                          <div className="pt-5 border-t border-gray-100 mb-2">
+                            <p className="text-[#1a3a4a] text-[11px] uppercase tracking-wider mb-2" style={{ fontWeight: 600 }}>
+                              About Pranavayu
+                            </p>
+                            <p className="text-gray-400 text-[12px]" style={{ lineHeight: 1.6 }}>
+                              {testi.about}
+                            </p>
+                          </div>
+                        )}
+                      </motion.div>
+
+                      {/* Read More Button */}
+                      <button
+                        onClick={() => setIsExpanded(!isExpanded)}
+                        className="mt-2 flex items-center gap-2 text-[#0FACA3] text-[14px] hover:text-[#0b827b] transition-colors w-fit group"
+                        style={{ fontWeight: 500 }}
+                      >
+                        <FileText size={16} />
+                        {isExpanded ? "Show less" : "Read the full story"}
+                        <ChevronDown
+                          size={16}
+                          className={`transition-transform duration-300 ${isExpanded ? "rotate-180" : "group-hover:translate-y-0.5"}`}
+                        />
+                      </button>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* FAQs */}
       <section className="py-14 bg-white">

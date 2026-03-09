@@ -9,7 +9,7 @@ const images = [
     height: "h-[380px]",
   },
   {
-    src: "/images/therapies/hbot.webp",
+    src: "/images/therapies/hbot.png",
     label: "HBOT Chamber",
     span: "",
     height: "h-[180px]",
@@ -27,7 +27,7 @@ const images = [
     height: "h-[180px]",
   },
   {
-    src: "/images/therapies/gait-training.webp",
+    src: "/images/therapies/gait-training.jpg",
     label: "Gait Training",
     span: "",
     height: "h-[180px]",

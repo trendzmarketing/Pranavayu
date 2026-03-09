@@ -8,6 +8,7 @@ import { PatientJourney } from "./PatientJourney";
 import { InternationalBlock } from "./InternationalBlock";
 import { TestimonialsSection } from "./TestimonialsSection";
 import { FacilitySection } from "./FacilitySection";
+import { AnniversarySection } from "./AnniversarySection";
 import { CTASection } from "./CTASection";
 
 export function HomePage() {
@@ -23,6 +24,7 @@ export function HomePage() {
       <InternationalBlock />
       <TestimonialsSection />
       <FacilitySection />
+      <AnniversarySection />
       <CTASection />
     </>
   );

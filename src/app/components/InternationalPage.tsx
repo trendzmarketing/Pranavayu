@@ -8,12 +8,13 @@ import {
   Wind, Brain, Zap, Shield, Activity, Droplets, Clock
 } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
+import { LocationShowcase } from "./LocationShowcase";
 
 const doctorImg = "/images/doctor/dr-harivadan-hero.webp";
-const cityImg = "/images/international/visakhapatnam.webp";
+const cityImg = "/images/international/visakhapatnam.jpg";
 
 const whyChooseUs = [
-  { icon: Microscope, title: "Advanced Medical Technologies", desc: "HBOT, Cryotherapy, Neuro Gait Training & Regenerative Therapies" },
+  { icon: Microscope, title: "Advanced Medical Technologies", desc: "HBOT, Pelvic Chair Therapy, Neuro Gait Training & Regenerative Therapies" },
   { icon: Stethoscope, title: "Surgical Leadership", desc: "Cardiothoracic & Vascular expertise guiding recovery" },
   { icon: DollarSign, title: "Affordable Excellence", desc: "High-end rehabilitation at globally competitive pricing" },
   { icon: Plane, title: "Complete Travel Support", desc: "Visa letters, airport pickup, accommodation coordination" },
@@ -131,9 +132,9 @@ export function InternationalPage() {
               className="hidden lg:flex justify-center"
             >
               <ImageWithFallback
-                src={doctorImg}
-                alt="Dr. Harivadan Lukka"
-                className="w-[340px] h-[430px] object-cover rounded-2xl"
+                src="/images/international/coastal-beach.jpg"
+                alt="Visakhapatnam Coastal Beach"
+                className="w-full h-[300px] object-cover rounded-2xl"
               />
             </motion.div>
           </div>
@@ -472,6 +473,9 @@ export function InternationalPage() {
           )}
         </div>
       </section>
+
+      {/* Location Showcase */}
+      <LocationShowcase />
 
       {/* FAQ */}
       <section className="py-[60px] md:py-[80px] lg:py-[120px] bg-white">

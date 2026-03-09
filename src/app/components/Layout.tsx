@@ -11,7 +11,7 @@ function ScrollToTop() {
   useEffect(() => {
     // Don't scroll to top if there's a hash — let the Header handle hash scrolling
     if (!hash) {
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      window.scrollTo({ top: 0, left: 0, behavior: "auto" });
     }
   }, [pathname, hash]);
   return null;

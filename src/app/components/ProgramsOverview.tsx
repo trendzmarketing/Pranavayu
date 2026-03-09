@@ -210,34 +210,54 @@ export function ProgramsOverview() {
       </section>
 
       {/* Program Flow Indicator */}
-      <section className="bg-white py-10 border-b border-gray-100">
-        <div className="max-w-4xl mx-auto px-5 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="flex flex-wrap items-center justify-center gap-2 lg:gap-0"
-          >
-            {["Assessment", "Structured Plan", "Monitored Sessions", "Measurable Progress", "Re-evaluation"].map(
-              (step, i, arr) => (
-                <div key={step} className="flex items-center gap-2 lg:gap-0">
-                  <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-[#0B4D6E]/5">
-                    <div className="w-5 h-5 rounded-full bg-[#0FACA3]/15 flex items-center justify-center">
-                      <span className="text-[#0FACA3] text-[10px]" style={{ fontWeight: 700 }}>
-                        {i + 1}
+      <section className="bg-white py-12 border-b border-gray-100 overflow-hidden">
+        <div className="max-w-5xl mx-auto px-5 lg:px-8">
+          <div className="relative">
+            {/* Animated Flow Line */}
+            <div className="absolute left-[5%] right-[5%] top-1/2 -translate-y-1/2 h-[3px] bg-[#0B4D6E]/5 rounded-full overflow-hidden hidden lg:block">
+              <motion.div
+                className="absolute top-0 bottom-0 left-0 w-1/2 bg-gradient-to-r from-transparent via-[#0FACA3] to-transparent opacity-80"
+                animate={{
+                  x: ["-100%", "200%"],
+                }}
+                transition={{
+                  duration: 2.5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              />
+            </div>
+
+            <div
+              className="flex flex-nowrap items-center justify-start lg:justify-between gap-4 lg:gap-0 overflow-x-auto pb-6 pt-2 px-2 -mx-2 sm:pb-2 sm:pt-0 snap-x relative z-10"
+              style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+            >
+              <style>{`.hide-scrollbar::-webkit-scrollbar { display: none; }`}</style>
+              {["Assessment", "Structured Plan", "Monitored Sessions", "Measurable Progress", "Re-evaluation"].map(
+                (step, i) => (
+                  <motion.div
+                    key={step}
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.1 }}
+                    className="flex-shrink-0 snap-center"
+                  >
+                    <div className="flex items-center gap-2 px-4 py-2.5 rounded-full bg-white shadow-sm shadow-[#0B4D6E]/5 border border-[#0FACA3]/15 relative">
+                      <div className="w-6 h-6 rounded-full bg-[#0FACA3]/10 flex items-center justify-center shrink-0">
+                        <span className="text-[#0FACA3] text-[11px]" style={{ fontWeight: 700 }}>
+                          {i + 1}
+                        </span>
+                      </div>
+                      <span className="text-[#1a3a4a] text-[13px] whitespace-nowrap pr-1" style={{ fontWeight: 600 }}>
+                        {step}
                       </span>
                     </div>
-                    <span className="text-[#1a3a4a] text-[12px]" style={{ fontWeight: 500 }}>
-                      {step}
-                    </span>
-                  </div>
-                  {i < arr.length - 1 && (
-                    <ArrowRight size={14} className="text-gray-300 mx-1 hidden lg:block" strokeWidth={1.5} />
-                  )}
-                </div>
-              )
-            )}
-          </motion.div>
+                  </motion.div>
+                )
+              )}
+            </div>
+          </div>
         </div>
       </section>
 
