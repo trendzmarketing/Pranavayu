@@ -22,10 +22,34 @@ export function ContactPage() {
     name: "", phone: "", email: "", condition: "", message: "",
   });
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const SHEET_URL = "https://script.google.com/macros/s/AKfycbwW7lFy6lOUHdADEQ7g0m6fCQ7GISLB9ntHeYZpbZXHHkcGMjc_iDTHo-XhzpUFcXDwlg/exec";
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setLoading(true);
+    setError("");
+    try {
+      await fetch(SHEET_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.name,
+          phone: formData.phone,
+          email: formData.email,
+          condition: formData.condition,
+          details: formData.message,
+        }),
+      });
+      setSubmitted(true);
+    } catch {
+      setError("Something went wrong. Please call us directly at +91 79975 92222.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -170,11 +194,23 @@ export function ContactPage() {
                         placeholder="Tell us about your condition or any specific concerns..."
                       />
                     </div>
+                    {error && (
+                      <p className="text-red-500 text-[12px] text-center bg-red-50 rounded-xl px-3 py-2">{error}</p>
+                    )}
                     <button
                       type="submit"
-                      className="w-full py-3 bg-[#0B4D6E] text-white rounded-full hover:bg-[#093d58] transition-colors text-[14px]"
+                      disabled={loading}
+                      className="w-full py-3 bg-[#0B4D6E] text-white rounded-full hover:bg-[#093d58] transition-colors text-[14px] disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                     >
-                      Submit Consultation Request
+                      {loading ? (
+                        <>
+                          <svg className="animate-spin h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z" />
+                          </svg>
+                          Sending...
+                        </>
+                      ) : "Submit Consultation Request"}
                     </button>
                     <p className="text-gray-300 text-[11px] text-center">
                       By submitting this form, you agree to our privacy policy.
