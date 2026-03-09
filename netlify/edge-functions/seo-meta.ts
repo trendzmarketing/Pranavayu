@@ -119,7 +119,7 @@ const META_MAP: Record<string, { title: string; description: string }> = {
     },
 };
 
-const BASE_URL = "https://pranavayu.life";
+const BASE_URL = "https://www.pranavayu.life";
 const DEFAULT_IMAGE = `${BASE_URL}/images/og-default.webp`;
 
 export default async (request: Request, context: { next: () => Promise<Response> }) => {

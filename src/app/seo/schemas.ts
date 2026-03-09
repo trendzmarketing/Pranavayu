@@ -8,7 +8,7 @@
  * - BreadcrumbList
  */
 
-const SITE_URL = "https://pranavayu.com";
+const SITE_URL = "https://www.pranavayu.life";
 
 // ─── Base Organization ────────────────────────────────────────────────────────
 
