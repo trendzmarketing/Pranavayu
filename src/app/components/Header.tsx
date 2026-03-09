@@ -20,17 +20,17 @@ const navItems: NavItem[] = [
   {
     label: "About",
     children: [
-      { label: "Our Story", href: "/#about" },
+      { label: "Our Story", href: "/about" },
       { label: "Dr. Harivadan Lukka", href: "/doctor" },
-      { label: "Our Facility", href: "/#facility" },
-      { label: "Patient Reviews", href: "/#testimonials" },
+      { label: "Our Facility", href: "/facility" },
+      { label: "Patient Reviews", href: "/testimonials" },
     ],
   },
   {
     label: "Services",
     children: [
       { label: "Programs", href: "/programs" },
-      { label: "Therapies", href: "/#therapies" },
+      { label: "Therapies", href: "/therapies" },
       { label: "Conditions We Treat", href: "/conditions" },
       { label: "Patient Journey", href: "/patient-journey" },
     ],

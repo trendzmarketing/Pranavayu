@@ -11,6 +11,10 @@ import { ConditionsPage } from "./components/ConditionsPage";
 import { PatientJourneyPage } from "./components/PatientJourneyPage";
 import { PrivacyPolicyPage } from "./components/PrivacyPolicyPage";
 import { TermsPage } from "./components/TermsPage";
+import { AboutPage } from "./components/AboutPage";
+import { TherapiesPage } from "./components/TherapiesPage";
+import { FacilityPage } from "./components/FacilityPage";
+import { TestimonialsPage } from "./components/TestimonialsPage";
 
 export const router = createBrowserRouter([
   {
@@ -18,12 +22,16 @@ export const router = createBrowserRouter([
     Component: Layout,
     children: [
       { index: true, Component: HomePage },
+      { path: "about", Component: AboutPage },
       { path: "doctor", Component: DoctorPage },
+      { path: "therapies", Component: TherapiesPage },
       { path: "therapies/:therapyId", Component: TherapyPage },
       { path: "programs", Component: ProgramsOverview },
       { path: "programs/:programId", Component: ProgramPage },
       { path: "conditions", Component: ConditionsPage },
       { path: "patient-journey", Component: PatientJourneyPage },
+      { path: "facility", Component: FacilityPage },
+      { path: "testimonials", Component: TestimonialsPage },
       { path: "contact", Component: ContactPage },
       { path: "international", Component: InternationalPage },
       { path: "privacy", Component: PrivacyPolicyPage },
