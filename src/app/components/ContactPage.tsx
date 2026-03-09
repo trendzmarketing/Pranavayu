@@ -25,24 +25,24 @@ export function ContactPage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  const SHEET_URL = "https://script.google.com/macros/s/AKfycbwW7lFy6lOUHdADEQ7g0m6fCQ7GISLB9ntHeYZpbZXHHkcGMjc_iDTHo-XhzpUFcXDwlg/exec";
+  const SHEET_URL = "https://script.google.com/macros/s/AKfycbyja8CU7WHs5u2qZ8vWLdCpdB1OiBHTomGYE0IvYb_YXbRh2LEwxHLMuFDfs4QzdD6eBQ/exec";
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
     setError("");
     try {
+      const params = new URLSearchParams({
+        name: formData.name,
+        phone: formData.phone,
+        email: formData.email,
+        condition: formData.condition,
+        details: formData.message,
+      });
       await fetch(SHEET_URL, {
         method: "POST",
         mode: "no-cors",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: formData.name,
-          phone: formData.phone,
-          email: formData.email,
-          condition: formData.condition,
-          details: formData.message,
-        }),
+        body: params,
       });
       setSubmitted(true);
     } catch {
