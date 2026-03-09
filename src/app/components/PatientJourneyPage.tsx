@@ -17,6 +17,8 @@ import {
   Settings,
   Leaf,
 } from "lucide-react";
+import { useSEO } from "../hooks/useSEO";
+import { organizationSchema, buildFaqSchema, buildBreadcrumbSchema } from "../seo/schemas";
 
 const steps = [
   {
@@ -152,6 +154,21 @@ export function PatientJourneyPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
   const [activeStep, setActiveStep] = useState(0);
 
+  useSEO({
+    title: "Patient Recovery Journey | 6-Step Rehabilitation Process | Pranavayu",
+    description:
+      "Understand the Pranavayu recovery journey — from initial consultation to supervised therapy, progress monitoring, and long-term lifestyle integration. Advanced cardiac & pulmonary rehabilitation in Visakhapatnam.",
+    canonicalPath: "/patient-journey",
+    schema: [
+      organizationSchema,
+      buildFaqSchema(faqs),
+      buildBreadcrumbSchema([
+        { name: "Home", url: "/" },
+        { name: "Patient Journey", url: "/patient-journey" },
+      ]),
+    ],
+  });
+
   return (
     <div>
       {/* Hero */}
@@ -227,11 +244,10 @@ export function PatientJourneyPage() {
                   setActiveStep(i);
                   document.getElementById("journey-steps")?.scrollIntoView({ behavior: "smooth" });
                 }}
-                className={`px-3.5 py-1.5 rounded-full text-[11px] border transition-all duration-300 cursor-pointer ${
-                  i === activeStep
-                    ? "bg-[#0FACA3]/15 border-[#0FACA3]/30 text-[#0FACA3]"
-                    : "border-white/10 text-white/40 hover:border-white/20 hover:text-white/60"
-                }`}
+                className={`px-3.5 py-1.5 rounded-full text-[11px] border transition-all duration-300 cursor-pointer ${i === activeStep
+                  ? "bg-[#0FACA3]/15 border-[#0FACA3]/30 text-[#0FACA3]"
+                  : "border-white/10 text-white/40 hover:border-white/20 hover:text-white/60"
+                  }`}
                 style={{ fontWeight: 500 }}
               >
                 Step {s.number}
@@ -263,19 +279,17 @@ export function PatientJourneyPage() {
                     className="flex flex-col items-center cursor-pointer group"
                   >
                     <motion.div
-                      className={`w-10 h-10 rounded-full flex items-center justify-center text-[12px] transition-all duration-300 ${
-                        i <= activeStep
-                          ? "bg-[#0FACA3] text-white shadow-md shadow-[#0FACA3]/20"
-                          : "bg-white text-gray-400 border-2 border-gray-200 group-hover:border-[#0FACA3]/30"
-                      }`}
+                      className={`w-10 h-10 rounded-full flex items-center justify-center text-[12px] transition-all duration-300 ${i <= activeStep
+                        ? "bg-[#0FACA3] text-white shadow-md shadow-[#0FACA3]/20"
+                        : "bg-white text-gray-400 border-2 border-gray-200 group-hover:border-[#0FACA3]/30"
+                        }`}
                       style={{ fontWeight: 600 }}
                     >
                       {s.number}
                     </motion.div>
                     <span
-                      className={`mt-3 text-[11px] transition-colors duration-300 ${
-                        i === activeStep ? "text-[#0B4D6E]" : "text-gray-400"
-                      }`}
+                      className={`mt-3 text-[11px] transition-colors duration-300 ${i === activeStep ? "text-[#0B4D6E]" : "text-gray-400"
+                        }`}
                       style={{ fontWeight: i === activeStep ? 600 : 400 }}
                     >
                       Step {s.number}
@@ -398,11 +412,10 @@ export function PatientJourneyPage() {
                     <button
                       key={i}
                       onClick={() => setActiveStep(i)}
-                      className={`w-2 h-2 rounded-full transition-all duration-300 cursor-pointer ${
-                        i === activeStep
-                          ? "bg-[#0FACA3] w-5"
-                          : "bg-gray-300 hover:bg-gray-400"
-                      }`}
+                      className={`w-2 h-2 rounded-full transition-all duration-300 cursor-pointer ${i === activeStep
+                        ? "bg-[#0FACA3] w-5"
+                        : "bg-gray-300 hover:bg-gray-400"
+                        }`}
                     />
                   ))}
                 </div>
@@ -426,27 +439,24 @@ export function PatientJourneyPage() {
               <button
                 key={s.number}
                 onClick={() => setActiveStep(i)}
-                className={`w-full flex items-center gap-3 px-4 py-3.5 rounded-xl text-left transition-all duration-200 cursor-pointer ${
-                  i === activeStep
-                    ? "bg-white border border-[#0FACA3]/15 shadow-sm"
-                    : "bg-transparent hover:bg-white/60"
-                }`}
+                className={`w-full flex items-center gap-3 px-4 py-3.5 rounded-xl text-left transition-all duration-200 cursor-pointer ${i === activeStep
+                  ? "bg-white border border-[#0FACA3]/15 shadow-sm"
+                  : "bg-transparent hover:bg-white/60"
+                  }`}
               >
                 <div
-                  className={`w-8 h-8 rounded-full flex items-center justify-center text-[11px] shrink-0 ${
-                    i <= activeStep
-                      ? "bg-[#0FACA3] text-white"
-                      : "bg-gray-100 text-gray-400"
-                  }`}
+                  className={`w-8 h-8 rounded-full flex items-center justify-center text-[11px] shrink-0 ${i <= activeStep
+                    ? "bg-[#0FACA3] text-white"
+                    : "bg-gray-100 text-gray-400"
+                    }`}
                   style={{ fontWeight: 600 }}
                 >
                   {s.number}
                 </div>
                 <div>
                   <p
-                    className={`text-[13px] ${
-                      i === activeStep ? "text-[#1a3a4a]" : "text-gray-400"
-                    }`}
+                    className={`text-[13px] ${i === activeStep ? "text-[#1a3a4a]" : "text-gray-400"
+                      }`}
                     style={{ fontWeight: i === activeStep ? 600 : 400 }}
                   >
                     {s.title}
@@ -543,11 +553,10 @@ export function PatientJourneyPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.05 }}
-                  className={`rounded-2xl border overflow-hidden transition-all duration-300 ${
-                    isOpen
-                      ? "bg-white border-[#0B4D6E]/10 shadow-[0_2px_16px_rgba(11,77,110,0.05)]"
-                      : "bg-white/70 border-gray-100 hover:border-gray-200"
-                  }`}
+                  className={`rounded-2xl border overflow-hidden transition-all duration-300 ${isOpen
+                    ? "bg-white border-[#0B4D6E]/10 shadow-[0_2px_16px_rgba(11,77,110,0.05)]"
+                    : "bg-white/70 border-gray-100 hover:border-gray-200"
+                    }`}
                 >
                   <button
                     onClick={() => setOpenFaq(isOpen ? null : i)}

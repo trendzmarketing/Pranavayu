@@ -15,6 +15,8 @@ import {
   ClipboardList,
   MonitorCheck,
 } from "lucide-react";
+import { useSEO } from "../hooks/useSEO";
+import { organizationSchema, buildBreadcrumbSchema } from "../seo/schemas";
 
 const programs = [
   {
@@ -155,6 +157,20 @@ const differentiators = [
 ];
 
 export function ProgramsOverview() {
+  useSEO({
+    title: "Rehabilitation Programs | Cardiac, Pulmonary & Neurovascular Recovery | Pranavayu",
+    description:
+      "Explore Pranavayu's evidence-based rehabilitation programs in Visakhapatnam — Cardiac, Pulmonary, Neurovascular, Post-Surgical, Long COVID & Preventive programs led by Dr. Harivadan Lukka.",
+    canonicalPath: "/programs",
+    schema: [
+      organizationSchema,
+      buildBreadcrumbSchema([
+        { name: "Home", url: "/" },
+        { name: "Our Programs", url: "/programs" },
+      ]),
+    ],
+  });
+
   return (
     <div>
       {/* Hero */}

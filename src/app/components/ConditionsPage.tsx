@@ -12,6 +12,8 @@ import {
   ArrowRight,
   CheckCircle2,
 } from "lucide-react";
+import { useSEO } from "../hooks/useSEO";
+import { organizationSchema, buildBreadcrumbSchema } from "../seo/schemas";
 
 interface ConditionCategory {
   id: string;
@@ -102,6 +104,20 @@ const categories: ConditionCategory[] = [
 export function ConditionsPage() {
   const [expanded, setExpanded] = useState<string | null>("cardiac");
 
+  useSEO({
+    title: "Conditions Treated | Cardiac, Pulmonary, Neurovascular & More | Pranavayu",
+    description:
+      "Pranavayu treats Cardiac, Pulmonary, Neurovascular, Vascular & Metabolic conditions in Visakhapatnam. Post-bypass, COPD, Stroke recovery, Long COVID & more — under Dr. Harivadan Lukka.",
+    canonicalPath: "/conditions",
+    schema: [
+      organizationSchema,
+      buildBreadcrumbSchema([
+        { name: "Home", url: "/" },
+        { name: "Conditions We Treat", url: "/conditions" },
+      ]),
+    ],
+  });
+
   const toggle = (id: string) => {
     setExpanded((prev) => (prev === id ? null : id));
   };
@@ -165,11 +181,10 @@ export function ConditionsPage() {
                   setExpanded(cat.id);
                   document.getElementById("conditions-list")?.scrollIntoView({ behavior: "smooth" });
                 }}
-                className={`flex items-center gap-2 px-4 py-2.5 rounded-full border text-[12.5px] transition-all duration-300 cursor-pointer ${
-                  expanded === cat.id
-                    ? "bg-[#0B4D6E]/8 border-[#0B4D6E]/15 text-[#1a3a4a]"
-                    : "bg-white border-gray-150 text-gray-400 hover:border-gray-200 hover:text-gray-500"
-                }`}
+                className={`flex items-center gap-2 px-4 py-2.5 rounded-full border text-[12.5px] transition-all duration-300 cursor-pointer ${expanded === cat.id
+                  ? "bg-[#0B4D6E]/8 border-[#0B4D6E]/15 text-[#1a3a4a]"
+                  : "bg-white border-gray-150 text-gray-400 hover:border-gray-200 hover:text-gray-500"
+                  }`}
                 style={{ fontWeight: 500 }}
               >
                 <cat.icon size={14} strokeWidth={1.5} style={{ color: cat.accent }} />
@@ -203,11 +218,10 @@ export function ConditionsPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: catIdx * 0.05 }}
-                  className={`rounded-2xl border overflow-hidden transition-all duration-300 ${
-                    isOpen
-                      ? "bg-white border-[#0B4D6E]/10 shadow-[0_4px_24px_rgba(11,77,110,0.06)]"
-                      : "bg-white/70 border-gray-100 hover:border-gray-200"
-                  }`}
+                  className={`rounded-2xl border overflow-hidden transition-all duration-300 ${isOpen
+                    ? "bg-white border-[#0B4D6E]/10 shadow-[0_4px_24px_rgba(11,77,110,0.06)]"
+                    : "bg-white/70 border-gray-100 hover:border-gray-200"
+                    }`}
                 >
                   {/* Category Header */}
                   <button
@@ -240,9 +254,8 @@ export function ConditionsPage() {
                     >
                       <ChevronDown
                         size={18}
-                        className={`transition-colors duration-200 ${
-                          isOpen ? "text-[#0FACA3]" : "text-gray-300 group-hover:text-gray-400"
-                        }`}
+                        className={`transition-colors duration-200 ${isOpen ? "text-[#0FACA3]" : "text-gray-300 group-hover:text-gray-400"
+                          }`}
                         strokeWidth={1.5}
                       />
                     </motion.div>

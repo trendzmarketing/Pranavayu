@@ -9,6 +9,8 @@ import {
 } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { LocationShowcase } from "./LocationShowcase";
+import { useSEO } from "../hooks/useSEO";
+import { organizationSchema, buildFaqSchema, buildBreadcrumbSchema } from "../seo/schemas";
 
 const doctorImg = "/images/doctor/dr-harivadan-hero.webp";
 const cityImg = "/images/international/visakhapatnam.jpg";
@@ -74,6 +76,21 @@ export function InternationalPage() {
     name: "", country: "", contact: "", condition: "", dates: "", summary: "",
   });
   const [submitted, setSubmitted] = useState(false);
+
+  useSEO({
+    title: "International Patients | Advanced Cardiac & Pulmonary Rehabilitation in Visakhapatnam, India",
+    description:
+      "Pranavayu welcomes international patients seeking advanced rehabilitation in India. Cardiac, Pulmonary & Neurovascular recovery under Dr. Harivadan Lukka with full travel support, visa assistance & dedicated coordination.",
+    canonicalPath: "/international",
+    schema: [
+      organizationSchema,
+      buildFaqSchema(faqs),
+      buildBreadcrumbSchema([
+        { name: "Home", url: "/" },
+        { name: "International Patients", url: "/international" },
+      ]),
+    ],
+  });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();

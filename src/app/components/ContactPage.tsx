@@ -1,8 +1,23 @@
 import { useState } from "react";
 import { motion } from "motion/react";
 import { MapPin, Phone, Mail, Clock, MessageCircle, Check } from "lucide-react";
+import { useSEO } from "../hooks/useSEO";
+import { organizationSchema, buildBreadcrumbSchema } from "../seo/schemas";
 
 export function ContactPage() {
+  useSEO({
+    title: "Book a Rehabilitation Consultation in Visakhapatnam | Pranavayu",
+    description:
+      "Contact Pranavayu Rehabilitation Center in Visakhapatnam to book your consultation with Dr. Harivadan Lukka. Call +91 79975 92222 or use our online form.",
+    canonicalPath: "/contact",
+    schema: [
+      organizationSchema,
+      buildBreadcrumbSchema([
+        { name: "Home", url: "/" },
+        { name: "Contact Us", url: "/contact" },
+      ]),
+    ],
+  });
   const [formData, setFormData] = useState({
     name: "", phone: "", email: "", condition: "", message: "",
   });

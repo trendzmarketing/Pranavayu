@@ -1,0 +1,12 @@
+# Pranavayu Robots.txt
+# Allow all search engines to crawl the site
+
+User-agent: *
+Allow: /
+
+# Disallow legal/policy pages from indexing index (low SEO value)
+Disallow: /privacy
+Disallow: /terms
+
+# Sitemap location
+Sitemap: https://pranavayu.com/sitemap.xml

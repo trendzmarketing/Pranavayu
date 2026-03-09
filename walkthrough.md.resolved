@@ -1,0 +1,62 @@
+# SEO Implementation Walkthrough
+
+## What Was Accomplished
+
+### 1. Core SEO Infrastructure
+
+| File | Purpose |
+|------|---------|
+| [src/app/hooks/useSEO.ts](file:///d:/Pranavayu%20Website/src/app/hooks/useSEO.ts) | Custom hook — imperatively sets `<title>`, `<meta>`, canonical, OG, Twitter & injects JSON-LD `<script>` blocks per route |
+| [src/app/seo/schemas.ts](file:///d:/Pranavayu%20Website/src/app/seo/schemas.ts) | Centralized JSON-LD schema factory — exports named schemas + builder functions |
+
+### 2. JSON-LD Schemas Implemented
+
+| Schema Type | Scope |
+|---|---|
+| `MedicalBusiness` / `LocalBusiness` | Organization identity, address, hours, phone — injected globally |
+| `Physician` | Dr. Harivadan Lukka — credentials, expertise, affiliation |
+| `WebSite` | Site-level identity for Sitelinks Searchbox |
+| `FAQPage` (builder) | Per-page FAQ rich results — TherapyPage, InternationalPage, PatientJourneyPage |
+| [MedicalWebPage](file:///d:/Pranavayu%20Website/src/app/seo/schemas.ts#126-150) (builder) | Per-therapy clinical content with medical audience & specialty |
+| `BreadcrumbList` (builder) | Navigation trail on every inner page |
+
+### 3. Per-Page SEO Coverage
+
+| Page | Title Optimized | Description | Schema(s) |
+|------|---------------|-------------|-----------|
+| [HomePage](file:///d:/Pranavayu%20Website/src/app/components/HomePage.tsx#16-42) | ✅ | ✅ | Organization, WebSite, Physician |
+| [DoctorPage](file:///d:/Pranavayu%20Website/src/app/components/DoctorPage.tsx#163-658) | ✅ | ✅ | Physician, Organization, Breadcrumb |
+| [TherapyPage](file:///d:/Pranavayu%20Website/src/app/components/TherapyPage.tsx#442-990) (dynamic) | ✅ Dynamic per therapy | ✅ | MedicalWebPage, FAQPage, Breadcrumb |
+| [ProgramsOverview](file:///d:/Pranavayu%20Website/src/app/components/ProgramsOverview.tsx#159-476) | ✅ | ✅ | Organization, Breadcrumb |
+| [ContactPage](file:///d:/Pranavayu%20Website/src/app/components/ContactPage.tsx#7-192) | ✅ | ✅ | Organization, Breadcrumb |
+| [ConditionsPage](file:///d:/Pranavayu%20Website/src/app/components/ConditionsPage.tsx#104-368) | ✅ | ✅ | Organization, Breadcrumb |
+| [PatientJourneyPage](file:///d:/Pranavayu%20Website/src/app/components/PatientJourneyPage.tsx#153-661) | ✅ | ✅ | Organization, FAQPage, Breadcrumb |
+| [InternationalPage](file:///d:/Pranavayu%20Website/src/app/components/InternationalPage.tsx#73-529) | ✅ | ✅ | Organization, FAQPage, Breadcrumb |
+
+### 4. Technical SEO Assets
+
+- **[public/sitemap.xml](file:///d:/Pranavayu%20Website/public/sitemap.xml)** — 20+ URLs with priority weighting (therapy/doctor pages highest)
+- **[public/robots.txt](file:///d:/Pranavayu%20Website/public/robots.txt)** — Allows full crawl, blocks /privacy & /terms, references sitemap
+- **[index.html](file:///d:/Pranavayu%20Website/index.html)** — Full OG, Twitter Card meta, canonical, sitemap `<link>`, Inter font preconnect
+
+### 5. Browser Verification Results
+
+✅ **Homepage** — Title: `"Pranavayu | Advanced Rehabilitation Center in Visakhapatnam"`  
+✅ **HBOT Therapy Page** — Title dynamically: `"Hyperbaric Oxygen Therapy (HBOT) in Visakhapatnam | Pranavayu"`  
+✅ **Doctor Page** — Title: `"Dr. Harivadan Lukka | Cardiothoracic & Vascular Surgeon | Pranavayu"`  
+✅ **robots.txt** — Accessible at [/robots.txt](file:///d:/Pranavayu%20Website/public/robots.txt)  
+✅ **sitemap.xml** — Accessible at [/sitemap.xml](file:///d:/Pranavayu%20Website/public/sitemap.xml)  
+✅ **No critical JS errors** in console  
+
+### 6. Recording
+
+![SEO Verification Recording](file:///C:/Users/Raviteja%20Erram/.gemini/antigravity/brain/12acdb21-74d5-4447-8ae1-0d72208882b0/seo_verification_1773083227362.webp)
+
+---
+
+## Next Steps (Recommended)
+
+1. **Verify with a real domain** — Update all `pranavayu.com` references in [schemas.ts](file:///d:/Pranavayu%20Website/src/app/seo/schemas.ts) and [index.html](file:///d:/Pranavayu%20Website/index.html) with the actual deployed domain
+2. **Submit sitemap to Google Search Console** — [search.google.com/search-console](https://search.google.com/search-console)
+3. **Create `public/images/og-default.webp`** — An 1200×630px branded image for social sharing (referenced in OG tags)
+4. **Consider pre-rendering** — For a Vite SPA, tools like `vite-plugin-prerender` or deploying on a host with SSR support (Vercel) will enable full crawler indexing

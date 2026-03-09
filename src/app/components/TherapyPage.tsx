@@ -2,6 +2,8 @@ import { useParams, Link } from "react-router";
 import { motion } from "motion/react";
 import { ArrowLeft, Check, Shield, Users, HelpCircle, ChevronDown, Clock, AlertTriangle, FileText, ArrowRight } from "lucide-react";
 import { useState } from "react";
+import { useSEO } from "../hooks/useSEO";
+import { buildFaqSchema, buildMedicalWebPageSchema, buildBreadcrumbSchema } from "../seo/schemas";
 
 interface TherapyData {
   title: string;
@@ -442,6 +444,33 @@ export function TherapyPage() {
   const therapy = therapyData[therapyId || ""];
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [infoExpanded, setInfoExpanded] = useState(false);
+
+  // ── Dynamic SEO per therapy ──────────────────────────────────────────────
+  useSEO({
+    title: therapy
+      ? `${therapy.title} in Visakhapatnam | Pranavayu`
+      : "Therapy | Pranavayu",
+    description: therapy
+      ? `${therapy.tagline} Supervised by Dr. Harivadan Lukka at Pranavayu Rehabilitation Center, Visakhapatnam. ${therapy.benefits[0]}.`
+      : "Advanced therapy at Pranavayu Rehabilitation Center, Visakhapatnam.",
+    canonicalPath: `/therapies/${therapyId}`,
+    schema: therapy
+      ? [
+        buildMedicalWebPageSchema({
+          name: therapy.title,
+          description: therapy.description,
+          url: `/therapies/${therapyId}`,
+          specialty: "Physical Medicine and Rehabilitation",
+        }),
+        buildFaqSchema(therapy.faqs),
+        buildBreadcrumbSchema([
+          { name: "Home", url: "/" },
+          { name: "Therapies", url: "/#therapies" },
+          { name: therapy.title, url: `/therapies/${therapyId}` },
+        ]),
+      ]
+      : [],
+  });
 
   if (!therapy) {
     return (

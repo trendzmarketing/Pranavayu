@@ -7,6 +7,8 @@ import {
   Activity, Zap, ShieldCheck
 } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
+import { useSEO } from "../hooks/useSEO";
+import { physicianSchema, organizationSchema, buildBreadcrumbSchema } from "../seo/schemas";
 
 const doctorImg = "/images/doctor/dr-harivadan-hero.webp";
 
@@ -160,6 +162,21 @@ function AnimatedCounter({ end, suffix = "", label }: { end: number; suffix?: st
 
 export function DoctorPage() {
   const [activeTab, setActiveTab] = useState("cardiac");
+
+  useSEO({
+    title: "Dr. Harivadan Lukka | Cardiothoracic & Vascular Surgeon | Pranavayu",
+    description:
+      "Dr. Harivadan Lukka (MBBS, MS, M.Ch) — Internationally trained Cardiothoracic & Vascular Surgeon with 15+ years experience, leading advanced rehabilitation at Pranavayu, Visakhapatnam.",
+    canonicalPath: "/doctor",
+    schema: [
+      physicianSchema,
+      organizationSchema,
+      buildBreadcrumbSchema([
+        { name: "Home", url: "/" },
+        { name: "Dr. Harivadan Lukka", url: "/doctor" },
+      ]),
+    ],
+  });
 
   return (
     <>
@@ -328,11 +345,10 @@ export function DoctorPage() {
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
-                  className={`relative inline-flex items-center gap-2 px-5 py-3 text-[14px] transition-all duration-300 ${
-                    activeTab === tab.id
-                      ? "text-[#0B4D6E]"
-                      : "text-gray-400 hover:text-gray-600"
-                  }`}
+                  className={`relative inline-flex items-center gap-2 px-5 py-3 text-[14px] transition-all duration-300 ${activeTab === tab.id
+                    ? "text-[#0B4D6E]"
+                    : "text-gray-400 hover:text-gray-600"
+                    }`}
                   style={{ fontWeight: activeTab === tab.id ? 600 : 400 }}
                 >
                   <Icon size={14} strokeWidth={1.5} className={activeTab === tab.id ? "text-[#0FACA3]" : "text-gray-400"} />
@@ -406,15 +422,13 @@ export function DoctorPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.08 }}
-                className={`flex items-start gap-4 p-5 rounded-2xl border ${
-                  pos.current
-                    ? "bg-[#0B4D6E]/4 border-[#0B4D6E]/12"
-                    : "bg-[#f6f9fc] border-gray-100/60"
-                }`}
+                className={`flex items-start gap-4 p-5 rounded-2xl border ${pos.current
+                  ? "bg-[#0B4D6E]/4 border-[#0B4D6E]/12"
+                  : "bg-[#f6f9fc] border-gray-100/60"
+                  }`}
               >
-                <div className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 ${
-                  pos.current ? "bg-[#0B4D6E]" : "bg-[#0B4D6E]/10"
-                }`}>
+                <div className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 ${pos.current ? "bg-[#0B4D6E]" : "bg-[#0B4D6E]/10"
+                  }`}>
                   <Briefcase size={16} strokeWidth={1.5} className={pos.current ? "text-white" : "text-[#0B4D6E]"} />
                 </div>
                 <div className="flex-1 min-w-0">
