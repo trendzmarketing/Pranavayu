@@ -1,51 +1,11 @@
-import { motion, useScroll, useTransform } from "motion/react";
+import { motion } from "motion/react";
 import { Link } from "react-router";
-import { ArrowRight, Clock, HeartPulse, Globe, Stethoscope } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { useRef } from "react";
+import { useScroll, useTransform } from "motion/react";
 
 const doctorImg = "/images/doctor/dr-harivadan-hero.webp";
-
-const stats = [
-  { icon: Clock, number: "15+", label: "Years Expertise" },
-  { icon: HeartPulse, number: "5000+", label: "Advanced Oxygen Therapies" },
-  { icon: Globe, number: "20+", label: "International Patients" },
-  { icon: Stethoscope, number: "100%", label: "Personalized Recovery" },
-];
-
-function ECGLine() {
-  return (
-    <svg
-      className="absolute top-1/2 left-0 right-0 -translate-y-1/2 pointer-events-none z-0"
-      viewBox="0 0 1200 100"
-      preserveAspectRatio="none"
-      style={{ width: "200%", height: "140px", opacity: 0.07 }}
-    >
-      <defs>
-        <filter id="ecgGlow">
-          <feGaussianBlur stdDeviation="3" result="blur" />
-          <feMerge>
-            <feMergeNode in="blur" />
-            <feMergeNode in="SourceGraphic" />
-          </feMerge>
-        </filter>
-      </defs>
-      <motion.path
-        d="M0,50 L100,50 L120,50 L140,20 L160,80 L180,10 L200,90 L220,50 L280,50 L300,50 L320,50 L340,20 L360,80 L380,10 L400,90 L420,50 L480,50 L500,50 L520,50 L540,20 L560,80 L580,10 L600,90 L620,50 L700,50 L720,50 L740,20 L760,80 L780,10 L800,90 L820,50 L900,50 L920,50 L940,20 L960,80 L980,10 L1000,90 L1020,50 L1100,50 L1200,50"
-        fill="none"
-        stroke="#0FACA3"
-        strokeWidth="1.2"
-        filter="url(#ecgGlow)"
-        initial={{ pathLength: 0, x: 0 }}
-        animate={{ pathLength: 1, x: [0, -600] }}
-        transition={{
-          pathLength: { duration: 3, ease: "easeInOut" },
-          x: { duration: 8, ease: "linear", repeat: Infinity },
-        }}
-      />
-    </svg>
-  );
-}
 
 export function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -72,9 +32,6 @@ export function HeroSection() {
         transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
       />
 
-      {/* Floating ECG line */}
-      <ECGLine />
-
       <div className="relative z-10 max-w-6xl mx-auto px-5 lg:px-8 py-32 w-full">
         <div className="grid lg:grid-cols-2 gap-14 items-center">
           {/* Left content */}
@@ -86,22 +43,22 @@ export function HeroSection() {
             <div className="inline-flex items-center gap-2 bg-white/8 backdrop-blur-sm px-4 py-2 rounded-full mb-8 border border-white/5">
               <div className="w-1.5 h-1.5 bg-[#0FACA3] rounded-full animate-pulse" />
               <span className="text-white/55 text-[11px] tracking-[0.15em] uppercase">
-                Technology-Driven Recovery
+                Pranavayu
               </span>
             </div>
 
             <h1
               className="text-white mb-5"
-              style={{ fontSize: "clamp(2rem, 4vw, 3.25rem)", fontWeight: 700, lineHeight: 1.15, letterSpacing: "-0.005em" }}
+              style={{ fontSize: "clamp(1.6rem, 3vw, 2.6rem)", fontWeight: 700, lineHeight: 1.2, letterSpacing: "-0.005em" }}
             >
-              Precision-Led Cardiopulmonary Recovery
+              Advanced Cardiac Rehabilitation, Pulmonary Rehabilitation & Medical Wellness Center
             </h1>
 
-            <p className="text-white/50 max-w-lg mb-3" style={{ fontSize: "18px", lineHeight: 1.6 }}>
+            <p className="text-[#5CE0D8] max-w-lg mb-4" style={{ fontSize: "18px", lineHeight: 1.6, fontWeight: 500 }}>
               Rebuild Your Heart. Restore Your Health. Rediscover Your Life.
             </p>
-            <p className="text-white/40 max-w-lg mb-10" style={{ fontSize: "16px", lineHeight: 1.6 }}>
-              Advanced Cardiac, Pulmonary & Neurovascular Rehabilitation — Under the Expertise of Dr. Harivadan Lukka, M.Ch
+            <p className="text-white/45 max-w-lg mb-10" style={{ fontSize: "15px", lineHeight: 1.7 }}>
+              Pranavayu is a specialized center dedicated to Cardiac Rehabilitation, Pulmonary Rehabilitation, Hyperbaric Therapy, and Medical Wellness, designed to support individuals on their journey toward complete health recovery and long-term well-being.
             </p>
 
             <div className="flex flex-wrap gap-3">
@@ -113,10 +70,10 @@ export function HeroSection() {
                 <ArrowRight size={16} strokeWidth={1.5} />
               </Link>
               <Link
-                to="/#programs"
+                to="/programs"
                 className="inline-flex items-center gap-2 px-7 py-3 border border-white/20 text-white/80 rounded-full hover:bg-white/5 hover:border-white/30 transition-all duration-300 text-[15px] hover:-translate-y-[1px]"
               >
-                Explore Programs
+                Start Recovery Program
               </Link>
             </div>
           </motion.div>
@@ -156,33 +113,6 @@ export function HeroSection() {
             </div>
           </motion.div>
         </div>
-
-        {/* Glassmorphism stat cards with parallax */}
-        <motion.div
-          style={{ y: statY }}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-16"
-        >
-          {stats.map((stat, i) => (
-            <motion.div
-              key={stat.label}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6 + i * 0.1 }}
-              className="bg-white/[0.07] backdrop-blur-lg border border-white/[0.1] rounded-2xl px-6 py-5 hover:bg-white/[0.12] transition-all duration-300"
-            >
-              <stat.icon size={18} className="text-[#0FACA3] mb-2.5" strokeWidth={1.5} />
-              <div className="text-white" style={{ fontSize: "24px", fontWeight: 700 }}>
-                {stat.number}
-              </div>
-              <div className="text-white/35 text-[11px] tracking-wider uppercase mt-1">
-                {stat.label}
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
       </div>
 
       {/* Bottom wave */}

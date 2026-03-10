@@ -16,6 +16,14 @@ import { TherapiesPage } from "./components/TherapiesPage";
 import { FacilityPage } from "./components/FacilityPage";
 import { TestimonialsPage } from "./components/TestimonialsPage";
 import { ServicesPage } from "./components/ServicesPage";
+import { CardiacRehabPage } from "./components/CardiacRehabPage";
+import { PulmonaryRehabPage } from "./components/PulmonaryRehabPage";
+import { HBOTPage } from "./components/HBOTPage";
+import { MedicalRehabPage } from "./components/MedicalRehabPage";
+import { PreventiveCardiologyPage } from "./components/PreventiveCardiologyPage";
+import { LifestyleMedicinePage } from "./components/LifestyleMedicinePage";
+import { YogaNutritionPage } from "./components/YogaNutritionPage";
+import { CorporateWellnessPage } from "./components/CorporateWellnessPage";
 
 export const router = createBrowserRouter([
   {
@@ -24,6 +32,14 @@ export const router = createBrowserRouter([
     children: [
       { index: true, Component: HomePage },
       { path: "services", Component: ServicesPage },
+      { path: "cardiac-rehabilitation", Component: CardiacRehabPage },
+      { path: "pulmonary-rehabilitation", Component: PulmonaryRehabPage },
+      { path: "hyperbaric-oxygen-therapy", Component: HBOTPage },
+      { path: "medical-rehabilitation", Component: MedicalRehabPage },
+      { path: "preventive-cardiology", Component: PreventiveCardiologyPage },
+      { path: "lifestyle-medicine", Component: LifestyleMedicinePage },
+      { path: "yoga-nutrition-therapy", Component: YogaNutritionPage },
+      { path: "corporate-wellness", Component: CorporateWellnessPage },
       { path: "about", Component: AboutPage },
       { path: "doctor", Component: DoctorPage },
       { path: "therapies", Component: TherapiesPage },
