@@ -29,6 +29,7 @@ const navItems: NavItem[] = [
   {
     label: "Services",
     children: [
+      { label: "Services Overview", href: "/services" },
       { label: "Programs", href: "/programs" },
       { label: "Therapies", href: "/therapies" },
       { label: "Conditions We Treat", href: "/conditions" },

@@ -48,10 +48,11 @@ export function AboutSection() {
               Where Surgical Expertise Meets Structured Rehabilitation
             </h2>
             <p className="text-gray-500 mb-8" style={{ fontSize: "16px", lineHeight: 1.7 }}>
-              Pranavayu is a specialized rehabilitation institute that combines
-              the precision of surgical expertise with cutting-edge recovery science.
-              Under the leadership of Dr. Harivadan Lukka, we deliver comprehensive
-              recovery programs designed for optimal patient outcomes.
+              Pranavayu is a specialized center dedicated to Cardiac Rehabilitation, Pulmonary Rehabilitation,
+              Hyperbaric Therapy, and Medical Wellness, designed to support individuals on their journey toward
+              complete health recovery and long-term well-being. At Pranavayu, we provide doctor supervised
+              rehabilitation care that focuses on restoring heart strength, lung health, physical fitness,
+              and overall vitality.
             </p>
 
             <div className="grid grid-cols-2 gap-3 mb-8">

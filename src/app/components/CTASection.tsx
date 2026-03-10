@@ -18,12 +18,17 @@ export function CTASection() {
             className="text-white mb-4"
             style={{ fontSize: "clamp(1.5rem, 3vw, 2.5rem)", fontWeight: 600, lineHeight: 1.25 }}
           >
-            Begin Your Recovery Journey Today
+            Begin Your Journey Toward Better Health
           </h2>
-          <p className="text-white/45 max-w-lg mx-auto mb-10" style={{ fontSize: "16px", lineHeight: 1.7 }}>
-            Take the first step toward reclaiming your health. Our team is ready
-            to design a personalized rehabilitation plan for you.
+          <p className="text-white/45 max-w-lg mx-auto mb-6" style={{ fontSize: "16px", lineHeight: 1.7 }}>
+            Whether you are recovering from heart disease, surgery, respiratory illness, or seeking preventive wellness, Pranavayu offers comprehensive programs designed to help you regain strength and achieve long-term health.
           </p>
+          <div className="flex flex-wrap justify-center gap-4 mb-10 text-[13px]">
+            <span className="text-white/50">❤️ Stronger heart health</span>
+            <span className="text-white/50">💨 Better breathing capacity</span>
+            <span className="text-white/50">💪 Improved physical fitness</span>
+            <span className="text-white/50">🌿 Long-term wellness</span>
+          </div>
 
           <div className="flex flex-wrap justify-center gap-3">
             <Link

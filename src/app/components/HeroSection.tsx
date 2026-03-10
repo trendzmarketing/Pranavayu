@@ -98,10 +98,10 @@ export function HeroSection() {
             </h1>
 
             <p className="text-white/50 max-w-lg mb-3" style={{ fontSize: "18px", lineHeight: 1.6 }}>
-              Advanced Cardiac, Pulmonary & Neurovascular Rehabilitation
+              Rebuild Your Heart. Restore Your Health. Rediscover Your Life.
             </p>
             <p className="text-white/40 max-w-lg mb-10" style={{ fontSize: "16px", lineHeight: 1.6 }}>
-              Under the Expertise of Dr. Harivadan Lukka, M.Ch — Cardiothoracic & Vascular Surgeon
+              Advanced Cardiac, Pulmonary & Neurovascular Rehabilitation — Under the Expertise of Dr. Harivadan Lukka, M.Ch
             </p>
 
             <div className="flex flex-wrap gap-3">
