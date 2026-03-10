@@ -70,12 +70,17 @@ const faqs = [
   { q: "Is Visakhapatnam safe for international visitors?", a: "Visakhapatnam is one of the safest cities in India, known for its pleasant coastal climate and welcoming community. It has excellent infrastructure and connectivity." },
 ];
 
+const SHEET_URL =
+  "https://script.google.com/macros/s/AKfycbwrHVmviTg4fmLA1aHqzHj0GVBXHnpMY0Dpc2ehPQHCO9DUETNOS0tdAf6m6vIkAsuh/exec";
+
 export function InternationalPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [formData, setFormData] = useState({
     name: "", country: "", contact: "", condition: "", dates: "", summary: "",
   });
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
 
   useSEO({
     title: "International Patients | Advanced Cardiac & Pulmonary Rehabilitation in Visakhapatnam, India",
@@ -92,9 +97,22 @@ export function InternationalPage() {
     ],
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setSubmitting(true);
+    setSubmitError("");
+    try {
+      await fetch(SHEET_URL, {
+        method: "POST",
+        headers: { "Content-Type": "text/plain" },
+        body: JSON.stringify(formData),
+      });
+      setSubmitted(true);
+    } catch {
+      setSubmitError("Something went wrong. Please try again or contact us directly.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -480,11 +498,15 @@ export function InternationalPage() {
                   placeholder="Brief description of your condition and treatment history..."
                 />
               </div>
+              {submitError && (
+                <p className="text-red-400 text-[13px] text-center">{submitError}</p>
+              )}
               <button
                 type="submit"
-                className="w-full py-3 bg-[#0FACA3] text-white rounded-full hover:bg-[#0d9990] transition-all text-[14px] hover:shadow-lg hover:shadow-[#0FACA3]/25"
+                disabled={submitting}
+                className="w-full py-3 bg-[#0FACA3] text-white rounded-full hover:bg-[#0d9990] transition-all text-[14px] hover:shadow-lg hover:shadow-[#0FACA3]/25 disabled:opacity-60 disabled:cursor-not-allowed"
               >
-                Request Medical Consultation
+                {submitting ? "Sending…" : "Request Medical Consultation"}
               </button>
             </form>
           )}
