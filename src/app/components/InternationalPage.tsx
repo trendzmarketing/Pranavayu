@@ -86,6 +86,8 @@ export function InternationalPage() {
     title: "International Patients | Advanced Cardiac & Pulmonary Rehabilitation in Visakhapatnam, India",
     description:
       "Pranavayu welcomes international patients seeking advanced rehabilitation in India. Cardiac, Pulmonary & Neurovascular recovery under Dr. Harivadan Lukka with full travel support, visa assistance & dedicated coordination.",
+    keywords:
+      "Cardiac Rehab India, India Rehabilitation, India Wellness, Cardiac Rehabilitation, Heart Rehab Program, Pulmonary Rehab, HBOT Therapy, Hyperbaric Therapy, Medical Rehab, Rehabilitation Care, Heart Recovery Care, Post Surgery Rehab, Post Heart Attack Care, Heart Disease Prevention, Medical Rehabilitation, Advanced Cardiac Rehab, Doctor Supervised Rehab, Clinical Cardiac Rehab, Cardiac Rehab Center, Corporate Wellness, Executive Health, Medical Wellness, Holistic Wellness",
     canonicalPath: "/international",
     schema: [
       organizationSchema,

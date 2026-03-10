@@ -16,6 +16,8 @@ const DEFAULT_IMAGE = `${SITE_URL}/images/og-default.webp`;
 export interface SEOProps {
     title?: string;
     description?: string;
+    /** Comma-separated list of SEO keywords for this page */
+    keywords?: string;
     canonicalPath?: string; // e.g. "/therapies/hbot"
     ogImage?: string;
     noIndex?: boolean;
@@ -62,6 +64,7 @@ function injectSchema(schema: object) {
 export function useSEO({
     title,
     description,
+    keywords,
     canonicalPath,
     ogImage,
     noIndex = false,
@@ -76,6 +79,7 @@ export function useSEO({
         // Basic
         document.title = fullTitle;
         setMeta("description", fullDesc);
+        if (keywords) setMeta("keywords", keywords);
         setMeta("robots", noIndex ? "noindex, nofollow" : "index, follow");
 
         // Canonical
@@ -102,5 +106,5 @@ export function useSEO({
         return () => {
             clearSchemas();
         };
-    }, [title, description, canonicalPath, ogImage, noIndex, JSON.stringify(schema)]);
+    }, [title, description, keywords, canonicalPath, ogImage, noIndex, JSON.stringify(schema)]);
 }

@@ -453,6 +453,9 @@ export function TherapyPage() {
     description: therapy
       ? `${therapy.tagline} Supervised by Dr. Harivadan Lukka at Pranavayu Rehabilitation Center, Visakhapatnam. ${therapy.benefits[0]}.`
       : "Advanced therapy at Pranavayu Rehabilitation Center, Visakhapatnam.",
+    keywords: therapy
+      ? `${therapy.title}, HBOT Therapy, Hyperbaric Therapy, Oxygen Therapy, Oxygen Healing, Oxygen Recovery, Cardiac Rehab, Medical Rehab, Rehabilitation Care, Clinical Therapy, Medical Therapy, Healing Therapy, Recovery Therapy, Doctor Supervised Rehab, Cardiac Rehab Vizag, Vizag Rehab, India Rehabilitation, Heart Recovery, Cardiac Health, Physical Rehab, Body Recovery`
+      : undefined,
     canonicalPath: `/therapies/${therapyId}`,
     schema: therapy
       ? [

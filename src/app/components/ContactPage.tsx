@@ -9,6 +9,8 @@ export function ContactPage() {
     title: "Book a Rehabilitation Consultation in Visakhapatnam | Pranavayu",
     description:
       "Contact Pranavayu Rehabilitation Center in Visakhapatnam to book your consultation with Dr. Harivadan Lukka. Call +91 79975 92222 or use our online form.",
+    keywords:
+      "Cardiac Rehab Vizag, Cardiac Rehab India, Vizag Rehab, Vizag Wellness, India Rehabilitation, India Wellness, Heart Rehab Clinic, Cardiac Rehab Center, Medical Rehab, Health Recovery, Rehabilitation Care, Health Screening, Cardiac Rehabilitation, Heart Recovery Program, Wellness Coaching, Corporate Wellness, Executive Health, Workplace Wellness, Employee Health, Preventive Health, Medical Wellness",
     canonicalPath: "/contact",
     schema: [
       organizationSchema,

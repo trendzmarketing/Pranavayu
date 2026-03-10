@@ -161,6 +161,8 @@ export function ProgramsOverview() {
     title: "Rehabilitation Programs | Cardiac, Pulmonary & Neurovascular Recovery | Pranavayu",
     description:
       "Explore Pranavayu's evidence-based rehabilitation programs in Visakhapatnam — Cardiac, Pulmonary, Neurovascular, Post-Surgical, Long COVID & Preventive programs led by Dr. Harivadan Lukka.",
+    keywords:
+      "Cardiac Rehabilitation, Cardiac Rehab, Heart Rehab Program, Heart Recovery Program, Heart Care Program, Cardiac Recovery Program, Heart Fitness Program, Heart Strength Program, Pulmonary Rehab, Breathing Rehabilitation, Lung Rehabilitation, Post Surgery Rehab, Post Stent Rehab, Post Angioplasty Rehab, Post Heart Attack Care, Heart Surgery Recovery, Heart Disease Prevention, Preventive Cardiology, Cardio Pulmonary Rehab, Medical Rehab, Structured Cardiac Rehab, Advanced Cardiac Rehab, Doctor Supervised Rehab, Clinical Cardiac Rehab, Cardiac Rehab Center, Heart Rehab Clinic, Cardiac Rehab Vizag, Cardiac Rehab India, Medical Rehabilitation, Heart Health Program, Cardiac Wellness, Cardiac Fitness, Lifestyle Cardiology, Healthy Heart Program, Heart Recovery Therapy, Cardiac Recovery, Cardiac Prevention, Heart Risk Reduction",
     canonicalPath: "/programs",
     schema: [
       organizationSchema,

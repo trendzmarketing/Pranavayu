@@ -167,6 +167,8 @@ export function DoctorPage() {
     title: "Dr. Harivadan Lukka | Cardiothoracic & Vascular Surgeon | Pranavayu",
     description:
       "Dr. Harivadan Lukka (MBBS, MS, M.Ch) — Internationally trained Cardiothoracic & Vascular Surgeon with 15+ years experience, leading advanced rehabilitation at Pranavayu, Visakhapatnam.",
+    keywords:
+      "Doctor Supervised Rehab, Clinical Cardiac Rehab, Advanced Cardiac Rehab, Medical Rehabilitation, Cardiac Rehab Center, Heart Rehab Clinic, Cardiac Rehab Vizag, Heart Care, Cardiac Rehabilitation, Medical Wellness, Heart Recovery, Cardiac Health, Heart Therapy, Cardio Pulmonary Rehab, Medical Therapy, Clinical Therapy, Healing Therapy, Heart Disease Prevention, Preventive Cardiology, Lifestyle Medicine, Heart Recovery Center, Vizag Rehab",
     canonicalPath: "/doctor",
     schema: [
       physicianSchema,

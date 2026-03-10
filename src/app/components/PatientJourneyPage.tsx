@@ -158,6 +158,8 @@ export function PatientJourneyPage() {
     title: "Patient Recovery Journey | 6-Step Rehabilitation Process | Pranavayu",
     description:
       "Understand the Pranavayu recovery journey — from initial consultation to supervised therapy, progress monitoring, and long-term lifestyle integration. Advanced cardiac & pulmonary rehabilitation in Visakhapatnam.",
+    keywords:
+      "Heart Recovery Program, Cardiac Recovery Program, Structured Cardiac Rehab, Medical Rehab, Rehabilitation Care, Doctor Supervised Rehab, Clinical Cardiac Rehab, Cardiac Rehabilitation, Pulmonary Rehab, Heart Fitness Program, Heart Strength Training, Cardio Pulmonary Rehab, Nutrition Therapy, Fitness Therapy, Wellness Coaching, Lifestyle Medicine, Preventive Cardiology, Holistic Wellness, Longevity Care, Healthy Living, Healthy Aging, Heart Performance, Heart Longevity, Healthy Heart Lifestyle, Heart Strength Recovery",
     canonicalPath: "/patient-journey",
     schema: [
       organizationSchema,

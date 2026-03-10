@@ -9,6 +9,8 @@ export function FacilityPage() {
         title: "Our Facility | State-of-the-Art Rehabilitation Center | Pranavayu",
         description:
             "Tour Pranavayu's advanced rehabilitation facility in Maharanipeta, Visakhapatnam — equipped with HBOT chambers, Pelvic Chair, Shockwave therapy & dedicated monitoring systems.",
+        keywords:
+            "Cardiac Rehab Center, Heart Rehab Clinic, HBOT Therapy, Hyperbaric Therapy, Oxygen Therapy, Medical Rehab, Rehabilitation Care, Structured Cardiac Rehab, Advanced Cardiac Rehab, Clinical Cardiac Rehab, Doctor Supervised Rehab, Physical Rehab, Cardiac Rehab Vizag, Vizag Rehab, India Rehabilitation, Heart Recovery Center, Medical Rehabilitation, Cardio Pulmonary Therapy",
         canonicalPath: "/facility",
         schema: [
             organizationSchema,

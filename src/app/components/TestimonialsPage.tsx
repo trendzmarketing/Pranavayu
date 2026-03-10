@@ -9,6 +9,8 @@ export function TestimonialsPage() {
         title: "Patient Reviews & Testimonials | Pranavayu Visakhapatnam",
         description:
             "Read real patient stories and reviews from Pranavayu Rehabilitation Center, Visakhapatnam. Discover how Dr. Harivadan Lukka's team helped patients recover from cardiac, pulmonary & neurovascular conditions.",
+        keywords:
+            "Heart Recovery, Cardiac Recovery, Heart Rehabilitation, Cardiac Wellness, Heart Care Program, Medical Rehab, Health Recovery, Rehabilitation Care, Body Recovery, Healing Therapy, Recovery Therapy, Cardiac Rehab Vizag, Vizag Rehab, India Rehabilitation, Heart Recovery Program, Healthy Heart Program, Medical Wellness",
         canonicalPath: "/testimonials",
         schema: [
             organizationSchema,

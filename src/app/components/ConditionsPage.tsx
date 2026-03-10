@@ -108,6 +108,8 @@ export function ConditionsPage() {
     title: "Conditions Treated | Cardiac, Pulmonary, Neurovascular & More | Pranavayu",
     description:
       "Pranavayu treats Cardiac, Pulmonary, Neurovascular, Vascular & Metabolic conditions in Visakhapatnam. Post-bypass, COPD, Stroke recovery, Long COVID & more — under Dr. Harivadan Lukka.",
+    keywords:
+      "Post Heart Attack Care, Post Angioplasty Rehab, Post Stent Rehab, Heart Surgery Recovery, Post Surgery Rehab, Heart Disease Prevention, Cardiac Health, Heart Recovery Care, Lung Health, Lung Recovery, Respiratory Care, Breathing Health, Breathing Rehabilitation, Lung Rehabilitation, Respiratory Rehabilitation, Body Recovery, Physical Rehab, Preventive Cardiology, Preventive Health, Health Screening, Risk Prevention, Heart Protection, Health Protection, Heart Support, Heart Strength, Heart Fitness, Heart Wellness, Cardiac Recovery, Heart Rehab Program, Medical Rehabilitation, Post Surgery",
     canonicalPath: "/conditions",
     schema: [
       organizationSchema,
