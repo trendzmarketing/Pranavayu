@@ -2,6 +2,7 @@ import { motion } from "motion/react";
 import { Link } from "react-router";
 import { ArrowRight, CheckCircle, MessageCircle } from "lucide-react";
 import { useSEO } from "../hooks/useSEO";
+import { buildMedicalWebPageSchema, buildBreadcrumbSchema } from "../seo/schemas";
 
 const yogaComponents = [
   {
@@ -41,12 +42,25 @@ const benefits = [
 
 export function YogaNutritionPage() {
   useSEO({
-    title: "Yoga, Nutrition & Fitness Therapy in Visakhapatnam | Pranavayu",
+    title: "Yoga & Nutrition Therapy for Cardiac Recovery | Pranavayu",
     description:
-      "Pranavayu offers therapeutic yoga, clinical nutrition planning, and supervised exercise therapy to support cardiac and medical rehabilitation in Visakhapatnam.",
+      "Therapeutic yoga, clinical nutrition planning & supervised exercise therapy to support cardiac and medical rehabilitation at Pranavayu, Visakhapatnam.",
     keywords:
-      "Therapeutic Yoga Vizag, Nutrition Counselling Visakhapatnam, Exercise Therapy, Cardiac Yoga, Clinical Nutrition, Fitness Therapy Vizag",
+      "Therapeutic Yoga Vizag, Clinical Nutrition Visakhapatnam, Exercise Therapy for Heart Patients, Cardiac Yoga India, Pranayama Breathing Rehabilitation",
     canonicalPath: "/yoga-nutrition-therapy",
+    schema: [
+      buildMedicalWebPageSchema({
+        name: "Yoga, Nutrition & Fitness Therapy",
+        description:
+          "Therapeutic yoga, clinical nutrition, and supervised exercise to support cardiac and medical rehabilitation at Pranavayu, Visakhapatnam.",
+        url: "/yoga-nutrition-therapy",
+        specialty: "Cardiac Rehabilitation",
+      }),
+      buildBreadcrumbSchema([
+        { name: "Home", url: "/" },
+        { name: "Yoga & Nutrition Therapy", url: "/yoga-nutrition-therapy" },
+      ]),
+    ],
   });
 
   return (

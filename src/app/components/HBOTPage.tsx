@@ -2,6 +2,7 @@ import { motion } from "motion/react";
 import { Link } from "react-router";
 import { ArrowRight, CheckCircle, Zap, MessageCircle } from "lucide-react";
 import { useSEO } from "../hooks/useSEO";
+import { buildMedicalWebPageSchema, buildFaqSchema, buildBreadcrumbSchema } from "../seo/schemas";
 
 const benefits = [
   "Accelerates wound healing and tissue repair",
@@ -48,12 +49,26 @@ const faqs = [
 
 export function HBOTPage() {
   useSEO({
-    title: "Hyperbaric Oxygen Therapy (HBOT) in Visakhapatnam | Pranavayu",
+    title: "Hyperbaric Oxygen Therapy (HBOT) Vizag | Pranavayu",
     description:
-      "Pranavayu offers Hyperbaric Oxygen Therapy (HBOT) for wound healing, post-surgical recovery, radiation injury, stroke support and more in Visakhapatnam.",
+      "Pranavayu's HBOT delivers 100% oxygen in a pressurised chamber for wound healing, post-surgical recovery, radiation injury & stroke support in Visakhapatnam.",
     keywords:
-      "HBOT Vizag, Hyperbaric Oxygen Therapy Visakhapatnam, HBOT India, Wound Healing HBOT, Post Surgery Recovery, HBOT for Diabetic Wounds",
+      "HBOT Visakhapatnam, Hyperbaric Oxygen Therapy Vizag, Wound Healing HBOT India, Diabetic Wound Treatment, Post-Surgical HBOT, HBOT for Stroke Recovery",
     canonicalPath: "/hyperbaric-oxygen-therapy",
+    schema: [
+      buildMedicalWebPageSchema({
+        name: "Hyperbaric Oxygen Therapy (HBOT)",
+        description:
+          "HBOT at Pranavayu delivers 100% oxygen under pressure for wound healing, post-surgical recovery, radiation injury, and neurological support in Visakhapatnam.",
+        url: "/hyperbaric-oxygen-therapy",
+        specialty: "Hyperbaric Medicine",
+      }),
+      buildFaqSchema(faqs.map((f) => ({ q: f.q, a: f.a }))),
+      buildBreadcrumbSchema([
+        { name: "Home", url: "/" },
+        { name: "Hyperbaric Oxygen Therapy", url: "/hyperbaric-oxygen-therapy" },
+      ]),
+    ],
   });
 
   return (

@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import { Link } from "react-router";
 import { FileText, ArrowRight } from "lucide-react";
+import { useSEO } from "../hooks/useSEO";
 
 const sections = [
   {
@@ -98,6 +99,13 @@ Phone: +91 79975 92222 / +91 79975 99222`,
 ];
 
 export function TermsPage() {
+  useSEO({
+    title: "Terms & Conditions | Pranavayu Rehabilitation Center",
+    description:
+      "Review the terms and conditions governing use of the Pranavayu website and rehabilitation services. Learn about your rights and obligations as a user.",
+    keywords: "Terms and Conditions Pranavayu, Website Terms Rehabilitation Center",
+    canonicalPath: "/terms",
+  });
   return (
     <>
       {/* Hero */}

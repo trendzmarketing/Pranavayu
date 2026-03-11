@@ -2,6 +2,7 @@ import { motion } from "motion/react";
 import { Link } from "react-router";
 import { ArrowRight, CheckCircle, Wind, MessageCircle } from "lucide-react";
 import { useSEO } from "../hooks/useSEO";
+import { buildMedicalWebPageSchema, buildBreadcrumbSchema } from "../seo/schemas";
 
 const benefits = [
   "Improves breathing capacity and oxygen efficiency",
@@ -55,10 +56,23 @@ export function PulmonaryRehabPage() {
   useSEO({
     title: "Pulmonary Rehabilitation in Visakhapatnam | Pranavayu",
     description:
-      "Pranavayu offers comprehensive pulmonary rehabilitation for COPD, asthma, post-COVID lung conditions, and respiratory recovery in Visakhapatnam.",
+      "Breathe better with Pranavayu's pulmonary rehabilitation — specialist-led programs for COPD, asthma, post-COVID lung recovery & respiratory conditions in Vizag.",
     keywords:
-      "Pulmonary Rehabilitation Vizag, COPD Treatment Visakhapatnam, Lung Rehab, Respiratory Rehabilitation, Post-COVID Recovery, Breathing Exercises Vizag",
+      "Pulmonary Rehabilitation Vizag, COPD Treatment Visakhapatnam, Post-COVID Lung Recovery, Respiratory Rehabilitation India, Breathing Rehab Vizag",
     canonicalPath: "/pulmonary-rehabilitation",
+    schema: [
+      buildMedicalWebPageSchema({
+        name: "Pulmonary Rehabilitation Program",
+        description:
+          "Specialist-led pulmonary rehabilitation for COPD, asthma, post-COVID lung conditions, and respiratory recovery in Visakhapatnam.",
+        url: "/pulmonary-rehabilitation",
+        specialty: "Pulmonary Rehabilitation",
+      }),
+      buildBreadcrumbSchema([
+        { name: "Home", url: "/" },
+        { name: "Pulmonary Rehabilitation", url: "/pulmonary-rehabilitation" },
+      ]),
+    ],
   });
 
   return (

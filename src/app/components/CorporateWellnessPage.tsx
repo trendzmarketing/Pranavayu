@@ -2,6 +2,7 @@ import { motion } from "motion/react";
 import { Link } from "react-router";
 import { ArrowRight, CheckCircle, Briefcase, MessageCircle } from "lucide-react";
 import { useSEO } from "../hooks/useSEO";
+import { buildMedicalWebPageSchema, buildBreadcrumbSchema } from "../seo/schemas";
 
 const offerings = [
   {
@@ -49,12 +50,25 @@ const benefits = [
 
 export function CorporateWellnessPage() {
   useSEO({
-    title: "Corporate Wellness Programs in Visakhapatnam | Pranavayu",
+    title: "Corporate Wellness Programs Visakhapatnam | Pranavayu",
     description:
-      "Pranavayu offers corporate wellness programs including cardiac screening, stress management, nutrition workshops, and employee health checks for businesses in Visakhapatnam.",
+      "Pranavayu partners with organisations to deliver cardiac screening camps, stress management, nutrition workshops & employee health programs in Visakhapatnam.",
     keywords:
-      "Corporate Wellness Vizag, Employee Health Programs Visakhapatnam, Corporate Cardiac Screening, Workplace Wellness, Employee Wellbeing Vizag",
+      "Corporate Wellness Vizag, Employee Health Programs Visakhapatnam, Cardiac Screening Corporate, Workplace Health India, Executive Health Check-up Vizag",
     canonicalPath: "/corporate-wellness",
+    schema: [
+      buildMedicalWebPageSchema({
+        name: "Corporate Wellness Programs",
+        description:
+          "Pranavayu delivers corporate wellness programs including cardiac screening, stress management, and employee health initiatives in Visakhapatnam.",
+        url: "/corporate-wellness",
+        specialty: "Preventive Medicine",
+      }),
+      buildBreadcrumbSchema([
+        { name: "Home", url: "/" },
+        { name: "Corporate Wellness", url: "/corporate-wellness" },
+      ]),
+    ],
   });
 
   return (

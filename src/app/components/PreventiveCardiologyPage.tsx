@@ -2,6 +2,7 @@ import { motion } from "motion/react";
 import { Link } from "react-router";
 import { ArrowRight, CheckCircle, Shield, MessageCircle } from "lucide-react";
 import { useSEO } from "../hooks/useSEO";
+import { buildMedicalWebPageSchema, buildBreadcrumbSchema } from "../seo/schemas";
 
 const services = [
   {
@@ -44,10 +45,23 @@ export function PreventiveCardiologyPage() {
   useSEO({
     title: "Preventive Cardiology in Visakhapatnam | Pranavayu",
     description:
-      "Pranavayu offers preventive cardiology services including cardiac risk assessment, lifestyle risk management, and cardiac screening in Visakhapatnam.",
+      "Prevent heart disease before it starts. Pranavayu offers cardiac risk assessment, lifestyle risk management & cardiac screening programs in Visakhapatnam.",
     keywords:
-      "Preventive Cardiology Vizag, Cardiac Screening Visakhapatnam, Heart Disease Prevention, Cardiac Risk Assessment, Heart Check-up Vizag",
+      "Preventive Cardiology Vizag, Cardiac Risk Assessment Visakhapatnam, Heart Disease Prevention India, Cardiac Screening Vizag, Heart Check-up Visakhapatnam",
     canonicalPath: "/preventive-cardiology",
+    schema: [
+      buildMedicalWebPageSchema({
+        name: "Preventive Cardiology Program",
+        description:
+          "Cardiac risk assessment, lifestyle intervention, and medical management to protect cardiovascular health at Pranavayu, Visakhapatnam.",
+        url: "/preventive-cardiology",
+        specialty: "Cardiovascular Surgery",
+      }),
+      buildBreadcrumbSchema([
+        { name: "Home", url: "/" },
+        { name: "Preventive Cardiology", url: "/preventive-cardiology" },
+      ]),
+    ],
   });
 
   return (

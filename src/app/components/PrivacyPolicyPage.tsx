@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import { Link } from "react-router";
 import { Shield, ArrowRight } from "lucide-react";
+import { useSEO } from "../hooks/useSEO";
 
 const sections = [
   {
@@ -166,6 +167,13 @@ Email: pranavayurehabilitation@gmail.com`,
 ];
 
 export function PrivacyPolicyPage() {
+  useSEO({
+    title: "Privacy Policy | Pranavayu Rehabilitation Center",
+    description:
+      "Read Pranavayu's privacy policy to understand how we collect, use, and protect your personal and medical information on our rehabilitation services website.",
+    keywords: "Privacy Policy Pranavayu, Data Protection Rehabilitation Center",
+    canonicalPath: "/privacy",
+  });
   return (
     <>
       {/* Hero */}

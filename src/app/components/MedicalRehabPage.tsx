@@ -2,6 +2,7 @@ import { motion } from "motion/react";
 import { Link } from "react-router";
 import { ArrowRight, CheckCircle, Activity, MessageCircle } from "lucide-react";
 import { useSEO } from "../hooks/useSEO";
+import { buildMedicalWebPageSchema, buildBreadcrumbSchema } from "../seo/schemas";
 
 const services = [
   {
@@ -45,10 +46,23 @@ export function MedicalRehabPage() {
   useSEO({
     title: "Medical Rehabilitation in Visakhapatnam | Pranavayu",
     description:
-      "Pranavayu offers comprehensive medical rehabilitation for post-surgery recovery, stroke, neurological conditions, and chronic disease management in Visakhapatnam.",
+      "Pranavayu's multidisciplinary medical rehab covers post-surgery recovery, stroke, neurological conditions, ICU deconditioning & chronic disease management in Vizag.",
     keywords:
-      "Medical Rehabilitation Vizag, Post Surgery Rehab Visakhapatnam, Stroke Rehab, Neurological Rehab, ICU Recovery, Physiotherapy Vizag",
+      "Medical Rehabilitation Vizag, Post Surgery Recovery Visakhapatnam, Stroke Rehabilitation, Neurological Rehab India, ICU Deconditioning Recovery, Physiotherapy Vizag",
     canonicalPath: "/medical-rehabilitation",
+    schema: [
+      buildMedicalWebPageSchema({
+        name: "Medical Rehabilitation Services",
+        description:
+          "Multidisciplinary medical rehabilitation at Pranavayu covering post-surgery recovery, stroke, neurological conditions, and ICU deconditioning in Visakhapatnam.",
+        url: "/medical-rehabilitation",
+        specialty: "Physical Medicine and Rehabilitation",
+      }),
+      buildBreadcrumbSchema([
+        { name: "Home", url: "/" },
+        { name: "Medical Rehabilitation", url: "/medical-rehabilitation" },
+      ]),
+    ],
   });
 
   return (

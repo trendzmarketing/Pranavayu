@@ -2,6 +2,7 @@ import { motion } from "motion/react";
 import { Link } from "react-router";
 import { ArrowRight, CheckCircle, Heart, Activity, Shield, MessageCircle } from "lucide-react";
 import { useSEO } from "../hooks/useSEO";
+import { buildMedicalWebPageSchema, buildBreadcrumbSchema } from "../seo/schemas";
 
 const benefits = [
   "Reduces risk of second heart attack by up to 47%",
@@ -54,10 +55,23 @@ export function CardiacRehabPage() {
   useSEO({
     title: "Cardiac Rehabilitation in Visakhapatnam | Pranavayu",
     description:
-      "Pranavayu offers structured cardiac rehabilitation for heart attack recovery, bypass surgery, angioplasty, and heart failure. Doctor-supervised programs in Vizag.",
+      "Doctor-supervised cardiac rehabilitation at Pranavayu for heart attack recovery, bypass surgery, angioplasty & heart failure. Personalised programs in Vizag.",
     keywords:
-      "Cardiac Rehabilitation Vizag, Heart Attack Recovery, Bypass Surgery Rehab, Angioplasty Recovery, Heart Rehab Visakhapatnam, Cardiac Rehab Program India",
+      "Cardiac Rehabilitation Vizag, Heart Attack Recovery Visakhapatnam, Bypass Surgery Rehab, Cardiac Rehab Program India, Heart Failure Rehabilitation",
     canonicalPath: "/cardiac-rehabilitation",
+    schema: [
+      buildMedicalWebPageSchema({
+        name: "Cardiac Rehabilitation Program",
+        description:
+          "Doctor-supervised cardiac rehabilitation at Pranavayu for heart attack recovery, bypass surgery, angioplasty, and heart failure in Visakhapatnam.",
+        url: "/cardiac-rehabilitation",
+        specialty: "Cardiac Rehabilitation",
+      }),
+      buildBreadcrumbSchema([
+        { name: "Home", url: "/" },
+        { name: "Cardiac Rehabilitation", url: "/cardiac-rehabilitation" },
+      ]),
+    ],
   });
 
   return (

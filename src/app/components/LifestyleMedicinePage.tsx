@@ -2,6 +2,7 @@ import { motion } from "motion/react";
 import { Link } from "react-router";
 import { ArrowRight, CheckCircle, Leaf, MessageCircle } from "lucide-react";
 import { useSEO } from "../hooks/useSEO";
+import { buildMedicalWebPageSchema, buildBreadcrumbSchema } from "../seo/schemas";
 
 const pillars = [
   {
@@ -41,12 +42,25 @@ const benefits = [
 
 export function LifestyleMedicinePage() {
   useSEO({
-    title: "Lifestyle Medicine in Visakhapatnam | Pranavayu",
+    title: "Lifestyle Medicine Program in Visakhapatnam | Pranavayu",
     description:
-      "Pranavayu offers lifestyle medicine — evidence-based interventions in nutrition, physical activity, stress management, sleep, and tobacco cessation in Visakhapatnam.",
+      "Address root causes of chronic disease with Pranavayu's lifestyle medicine — nutrition, exercise, sleep, stress management & tobacco cessation in Vizag.",
     keywords:
-      "Lifestyle Medicine Vizag, Holistic Health Visakhapatnam, Chronic Disease Prevention, Nutrition Counselling Vizag, Stress Management, Sleep Disorders Vizag",
+      "Lifestyle Medicine Vizag, Chronic Disease Prevention Visakhapatnam, Nutrition Counselling Vizag, Stress Management Program, Sleep Disorders Treatment, Tobacco Cessation India",
     canonicalPath: "/lifestyle-medicine",
+    schema: [
+      buildMedicalWebPageSchema({
+        name: "Lifestyle Medicine Program",
+        description:
+          "Evidence-based lifestyle interventions at Pranavayu addressing nutrition, physical activity, sleep, stress, and tobacco cessation in Visakhapatnam.",
+        url: "/lifestyle-medicine",
+        specialty: "Lifestyle Medicine",
+      }),
+      buildBreadcrumbSchema([
+        { name: "Home", url: "/" },
+        { name: "Lifestyle Medicine", url: "/lifestyle-medicine" },
+      ]),
+    ],
   });
 
   return (
