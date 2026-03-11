@@ -117,6 +117,61 @@ const META_MAP: Record<string, { title: string; description: string }> = {
         description:
             "Contact Pranavayu Rehabilitation Center in Visakhapatnam to book your consultation with Dr. Harivadan Lukka. Call +91 79975 92222 or use our online form.",
     },
+    "/services": {
+        title: "Our Services | Cardiac, Pulmonary & Rehabilitation | Pranavayu",
+        description:
+            "Explore all rehabilitation services at Pranavayu Visakhapatnam — Cardiac Rehab, Pulmonary Rehab, HBOT, Medical Rehab, Preventive Cardiology, Lifestyle Medicine & more.",
+    },
+    "/cardiac-rehabilitation": {
+        title: "Cardiac Rehabilitation in Visakhapatnam | Pranavayu",
+        description:
+            "Doctor-supervised cardiac rehabilitation at Pranavayu for heart attack recovery, bypass surgery, angioplasty & heart failure. Personalised programs in Vizag.",
+    },
+    "/pulmonary-rehabilitation": {
+        title: "Pulmonary Rehabilitation in Visakhapatnam | Pranavayu",
+        description:
+            "Breathe better with Pranavayu's pulmonary rehabilitation — specialist-led programs for COPD, asthma, post-COVID lung recovery & respiratory conditions in Vizag.",
+    },
+    "/hyperbaric-oxygen-therapy": {
+        title: "Hyperbaric Oxygen Therapy (HBOT) Vizag | Pranavayu",
+        description:
+            "Pranavayu's HBOT delivers 100% oxygen in a pressurised chamber for wound healing, post-surgical recovery, radiation injury & stroke support in Visakhapatnam.",
+    },
+    "/medical-rehabilitation": {
+        title: "Medical Rehabilitation in Visakhapatnam | Pranavayu",
+        description:
+            "Pranavayu's multidisciplinary medical rehab covers post-surgery recovery, stroke, neurological conditions, ICU deconditioning & chronic disease management in Vizag.",
+    },
+    "/preventive-cardiology": {
+        title: "Preventive Cardiology in Visakhapatnam | Pranavayu",
+        description:
+            "Prevent heart disease before it starts. Pranavayu offers cardiac risk assessment, lifestyle risk management & cardiac screening programs in Visakhapatnam.",
+    },
+    "/lifestyle-medicine": {
+        title: "Lifestyle Medicine Program in Visakhapatnam | Pranavayu",
+        description:
+            "Address root causes of chronic disease with Pranavayu's lifestyle medicine — nutrition, exercise, sleep, stress management & tobacco cessation in Vizag.",
+    },
+    "/yoga-nutrition-therapy": {
+        title: "Yoga & Nutrition Therapy for Cardiac Recovery | Pranavayu",
+        description:
+            "Therapeutic yoga, clinical nutrition planning & supervised exercise therapy to support cardiac and medical rehabilitation at Pranavayu, Visakhapatnam.",
+    },
+    "/corporate-wellness": {
+        title: "Corporate Wellness Programs Visakhapatnam | Pranavayu",
+        description:
+            "Pranavayu partners with organisations to deliver cardiac screening camps, stress management, nutrition workshops & employee health programs in Visakhapatnam.",
+    },
+    "/privacy": {
+        title: "Privacy Policy | Pranavayu Rehabilitation Center",
+        description:
+            "Read Pranavayu's privacy policy to understand how we collect, use, and protect your personal and medical information on our rehabilitation services website.",
+    },
+    "/terms": {
+        title: "Terms & Conditions | Pranavayu Rehabilitation Center",
+        description:
+            "Review the terms and conditions governing use of the Pranavayu website and rehabilitation services. Learn about your rights and obligations as a user.",
+    },
 };
 
 const BASE_URL = "https://www.pranavayu.life";

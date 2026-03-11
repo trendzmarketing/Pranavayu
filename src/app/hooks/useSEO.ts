@@ -7,7 +7,7 @@
 import { useEffect } from "react";
 
 const SITE_NAME = "Pranavayu Rehabilitation Center";
-const SITE_URL = "https://pranavayu.com";
+const SITE_URL = "https://www.pranavayu.life";
 const DEFAULT_TITLE = "Pranavayu Rehabilitation Center | Precision-Led Cardiopulmonary Recovery";
 const DEFAULT_DESCRIPTION =
     "Advanced Cardiac, Pulmonary & Neurovascular Rehabilitation under the expert leadership of Dr. Harivadan Lukka (MBBS, MS, M.Ch) in Visakhapatnam, India.";
@@ -71,7 +71,9 @@ export function useSEO({
     schema = [],
 }: SEOProps = {}) {
     useEffect(() => {
-        const fullTitle = title ? `${title} | ${SITE_NAME}` : DEFAULT_TITLE;
+        const fullTitle = title
+            ? (title.toLowerCase().includes("pranavayu") ? title : `${title} | ${SITE_NAME}`)
+            : DEFAULT_TITLE;
         const fullDesc = description ?? DEFAULT_DESCRIPTION;
         const canonicalUrl = `${SITE_URL}${canonicalPath ?? ""}`;
         const imageUrl = ogImage ?? DEFAULT_IMAGE;
