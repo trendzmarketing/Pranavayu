@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import { getPhoneDisplay, getEmailDisplay } from "../utils/phoneProtection";
 
 export function PrivacyPage() {
     return (
@@ -37,8 +38,8 @@ export function PrivacyPage() {
 
                             <h2 className="text-[#1a3a4a] mt-8 mb-3" style={{ fontSize: "1.1rem", fontWeight: 600 }}>Contact Us</h2>
                             <p className="mb-6">If you have questions about this Privacy Policy, contact us at:</p>
-                            <p className="mb-2">Phone: +91 79975 92222</p>
-                            <p className="mb-2">Email: info@pranavayu.com</p>
+                            <p className="mb-2">Phone: {getPhoneDisplay()}</p>
+                            <p className="mb-2">Email: {getEmailDisplay('info')}</p>
                             <p>Maharanipeta, Visakhapatnam, Andhra Pradesh, India</p>
                         </div>
                     </motion.div>

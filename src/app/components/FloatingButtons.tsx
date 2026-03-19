@@ -1,12 +1,14 @@
 import { Phone, MessageCircle } from "lucide-react";
 import { motion } from "motion/react";
+import { handleCall, handleWhatsApp } from "../utils/phoneProtection";
 
 export function FloatingButtons() {
   return (
     <>
       {/* WhatsApp */}
       <motion.a
-        href="https://wa.me/917997592222"
+        href="#"
+        onClick={handleWhatsApp}
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-6 right-6 lg:bottom-6 w-13 h-13 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg shadow-[#25D366]/25 z-50 hover:scale-110 transition-transform max-lg:bottom-[4.5rem]"
@@ -19,7 +21,8 @@ export function FloatingButtons() {
 
       {/* Call */}
       <motion.a
-        href="tel:+917997592222"
+        href="#"
+        onClick={handleCall}
         className="fixed bottom-6 left-6 lg:bottom-6 w-13 h-13 bg-[#0B4D6E] rounded-full flex items-center justify-center shadow-lg shadow-[#0B4D6E]/25 z-50 hover:scale-110 transition-transform max-lg:bottom-[4.5rem]"
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}

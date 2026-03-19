@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import { Link } from "react-router";
 import { ArrowRight, MessageCircle } from "lucide-react";
+import { handleWhatsApp } from "../utils/phoneProtection";
 
 export function CTASection() {
   return (
@@ -39,7 +40,8 @@ export function CTASection() {
               <ArrowRight size={16} strokeWidth={1.5} />
             </Link>
             <a
-              href="https://wa.me/917997592222"
+              href="#"
+              onClick={handleWhatsApp}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-7 py-3 bg-[#25D366] text-white rounded-full hover:bg-[#20bd59] transition-all duration-300 text-[15px] hover:shadow-lg hover:shadow-[#25D366]/25 hover:-translate-y-[1px]"

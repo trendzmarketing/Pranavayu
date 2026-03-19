@@ -3,12 +3,13 @@ import { motion } from "motion/react";
 import { MapPin, Phone, Mail, Clock, MessageCircle, Check } from "lucide-react";
 import { useSEO } from "../hooks/useSEO";
 import { organizationSchema, buildBreadcrumbSchema } from "../seo/schemas";
+import { handleCall, handleWhatsApp, getPhoneDisplay, handleEmail, getEmailDisplay } from "../utils/phoneProtection";
 
 export function ContactPage() {
   useSEO({
     title: "Book a Rehabilitation Consultation in Visakhapatnam | Pranavayu",
     description:
-      "Contact Pranavayu Rehabilitation Center in Visakhapatnam to book your consultation with Dr. Harivadan Lukka. Call +91 79975 92222 or use our online form.",
+      "Contact Pranavayu Rehabilitation Center in Visakhapatnam to book your consultation with Dr. Harivadan Lukka. Use our online form or call us directly.",
     keywords:
       "Cardiac Rehab Vizag, Cardiac Rehab India, Vizag Rehab, Vizag Wellness, India Rehabilitation, India Wellness, Heart Rehab Clinic, Cardiac Rehab Center, Medical Rehab, Health Recovery, Rehabilitation Care, Health Screening, Cardiac Rehabilitation, Heart Recovery Program, Wellness Coaching, Corporate Wellness, Executive Health, Workplace Wellness, Employee Health, Preventive Health, Medical Wellness",
     canonicalPath: "/contact",
@@ -48,7 +49,7 @@ export function ContactPage() {
       });
       setSubmitted(true);
     } catch {
-      setError("Something went wrong. Please call us directly at +91 79975 92222.");
+      setError("Something went wrong. Please call us directly.");
     } finally {
       setLoading(false);
     }
@@ -79,16 +80,16 @@ export function ContactPage() {
               <div className="space-y-4">
                 {[
                   { icon: MapPin, title: "Address", content: "1st Floor, Nowroji Road, Maharanipeta, Visakhapatnam – 530002" },
-                  { icon: Phone, title: "Phone", content: "+91 79975 92222", href: "tel:+917997592222" },
-                  { icon: Mail, title: "Email", content: "pranavayurehabilitation@gmail.com", href: "mailto:pranavayurehabilitation@gmail.com" },
+                  { icon: Phone, title: "Phone", content: getPhoneDisplay(), onClick: handleCall },
+                  { icon: Mail, title: "Email", content: getEmailDisplay(), onClick: handleEmail },
                   { icon: Clock, title: "Hours", content: "Mon–Sat: 9:00 AM – 7:00 PM" },
                 ].map((item) => (
                   <div key={item.title} className="flex items-start gap-3 p-4 rounded-2xl bg-[#f6f9fc]">
                     <item.icon size={16} className="text-[#0FACA3] shrink-0 mt-0.5" />
                     <div>
                       <div className="text-[#1a3a4a] text-[13px]" style={{ fontWeight: 500 }}>{item.title}</div>
-                      {item.href ? (
-                        <a href={item.href} className="text-gray-400 text-[12px] mt-0.5 block hover:text-[#0FACA3]">
+                      {item.onClick ? (
+                        <a href="#" onClick={item.onClick} className="text-gray-400 text-[12px] mt-0.5 block hover:text-[#0FACA3]">
                           {item.content}
                         </a>
                       ) : (
@@ -98,7 +99,8 @@ export function ContactPage() {
                   </div>
                 ))}
                 <a
-                  href="https://wa.me/917997592222"
+                  href="#"
+                  onClick={handleWhatsApp}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 w-full py-3 bg-[#25D366] text-white rounded-full hover:bg-[#20bd59] transition-colors text-[14px]"

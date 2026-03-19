@@ -21,8 +21,6 @@ export const organizationSchema = {
     logo: `${SITE_URL}/images/logo.webp`,
     description:
         "Pranavayu is a specialized rehabilitation institute in Visakhapatnam combining surgical expertise with advanced recovery science under Dr. Harivadan Lukka.",
-    telephone: "+91-7997592222",
-    email: "info@pranavayu.com",
     address: {
         "@type": "PostalAddress",
         streetAddress: "Visakhapatnam",

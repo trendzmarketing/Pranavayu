@@ -115,7 +115,7 @@ const META_MAP: Record<string, { title: string; description: string }> = {
     "/contact": {
         title: "Book a Rehabilitation Consultation in Visakhapatnam | Pranavayu",
         description:
-            "Contact Pranavayu Rehabilitation Center in Visakhapatnam to book your consultation with Dr. Harivadan Lukka. Call +91 79975 92222 or use our online form.",
+            "Contact Pranavayu Rehabilitation Center in Visakhapatnam to book your consultation with Dr. Harivadan Lukka. Use our online form or call us directly.",
     },
     "/services": {
         title: "Our Services | Cardiac, Pulmonary & Rehabilitation | Pranavayu",

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Phone, MapPin, Clock, Globe } from "lucide-react";
 import { Link } from "react-router";
+import { handleCall, getPhoneDisplay } from "../utils/phoneProtection";
 
 export function TopInfoBar() {
   const [hidden, setHidden] = useState(false);
@@ -21,9 +22,9 @@ export function TopInfoBar() {
       <div className="max-w-6xl mx-auto px-5 lg:px-8">
         <div className="flex items-center justify-between h-9 text-[11px]">
           <div className="flex items-center gap-5">
-            <a href="tel:+917997592222" className="flex items-center gap-1.5 hover:text-white transition-colors">
+            <a href="#" onClick={handleCall} className="flex items-center gap-1.5 hover:text-white transition-colors">
               <Phone size={11} />
-              <span>+91 79975 92222</span>
+              <span>{getPhoneDisplay()}</span>
             </a>
             <span className="flex items-center gap-1.5">
               <MapPin size={11} />

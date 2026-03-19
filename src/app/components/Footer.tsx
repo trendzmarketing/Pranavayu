@@ -1,5 +1,6 @@
 import { Link } from "react-router";
 import { MapPin, Phone, Mail, Clock, Instagram, Linkedin, Youtube } from "lucide-react";
+import { handleCall, handleCallSecondary, getPhoneDisplay, handleEmail, getEmailDisplay } from "../utils/phoneProtection";
 
 export function Footer() {
   return (
@@ -99,18 +100,18 @@ export function Footer() {
               <div className="flex items-center gap-2.5">
                 <Phone size={14} className="text-[#0FACA3] shrink-0" strokeWidth={1.5} />
                 <div>
-                  <a href="tel:+917997592222" className="block text-white/35 hover:text-[#0FACA3] text-[13px]">
-                    +91 79975 92222
+                  <a href="#" onClick={handleCall} className="block text-white/35 hover:text-[#0FACA3] text-[13px]">
+                    {getPhoneDisplay()}
                   </a>
-                  <a href="tel:+919133685222" className="block text-white/35 hover:text-[#0FACA3] text-[13px]">
-                    +91 91336 85222
+                  <a href="#" onClick={handleCallSecondary} className="block text-white/35 hover:text-[#0FACA3] text-[13px]">
+                    {getPhoneDisplay('secondary')}
                   </a>
                 </div>
               </div>
               <div className="flex items-center gap-2.5 min-w-0">
                 <Mail size={14} className="text-[#0FACA3] shrink-0" strokeWidth={1.5} />
-                <a href="mailto:pranavayurehabilitation@gmail.com" className="text-white/35 hover:text-[#0FACA3] text-[13px] break-all">
-                  pranavayurehabilitation@gmail.com
+                <a href="#" onClick={handleEmail} className="text-white/35 hover:text-[#0FACA3] text-[13px] break-all">
+                  {getEmailDisplay()}
                 </a>
               </div>
               <div className="flex items-start gap-2.5">
@@ -121,6 +122,11 @@ export function Footer() {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Honeypot — invisible to users, traps scraper bots */}
+        <div aria-hidden="true" style={{ position: 'absolute', left: '-9999px', height: 0, overflow: 'hidden', opacity: 0 }}>
+          <a href="tel:+910000000000">+91 00000 00000</a>
         </div>
 
         {/* Bottom bar with slightly darker tone */}

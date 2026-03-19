@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 import { useSEO } from "../hooks/useSEO";
 import { organizationSchema, buildBreadcrumbSchema } from "../seo/schemas";
+import { handleCall } from "../utils/phoneProtection";
 
 const programs = [
   {
@@ -463,7 +464,8 @@ export function ProgramsOverview() {
                 Book Consultation
               </Link>
               <a
-                href="tel:+917997592222"
+                href="#"
+                onClick={handleCall}
                 className="px-7 py-3.5 border border-white/20 text-white rounded-full text-[14px] hover:bg-white/10 transition-all inline-flex items-center gap-2"
               >
                 <Phone size={15} strokeWidth={1.5} /> Speak to Our Team

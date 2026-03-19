@@ -11,6 +11,7 @@ import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { LocationShowcase } from "./LocationShowcase";
 import { useSEO } from "../hooks/useSEO";
 import { organizationSchema, buildFaqSchema, buildBreadcrumbSchema } from "../seo/schemas";
+import { getPhoneDisplay } from "../utils/phoneProtection";
 
 const doctorImg = "/images/doctor/dr-harivadan-hero.webp";
 const cityImg = "/images/international/visakhapatnam.jpg";
@@ -157,7 +158,7 @@ export function InternationalPage() {
               </div>
 
               <div className="mt-8 text-white/30 text-[12px] space-y-0.5">
-                <p>+91 79975 92222 &nbsp;·&nbsp; +91 91336 85222</p>
+                <p>{getPhoneDisplay()} &nbsp;·&nbsp; {getPhoneDisplay('secondary')}</p>
                 <p>Maharanipeta, Visakhapatnam &nbsp;·&nbsp; Mon–Sat: 9AM–7PM</p>
               </div>
             </motion.div>

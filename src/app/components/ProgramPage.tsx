@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
+import { handleCall, getPhoneDisplay } from "../utils/phoneProtection";
 
 interface ProgramData {
   title: string;
@@ -495,7 +496,8 @@ export function ProgramPage() {
                   Book Assessment
                 </Link>
                 <a
-                  href="tel:+917997592222"
+                  href="#"
+                  onClick={handleCall}
                   className="px-6 py-3 border border-white/20 text-white rounded-full text-[13px] hover:bg-white/10 transition-all inline-flex items-center gap-2"
                 >
                   <Phone size={14} strokeWidth={1.5} /> Call Us
@@ -760,10 +762,11 @@ export function ProgramPage() {
                 Book Consultation
               </Link>
               <a
-                href="tel:+917997592222"
+                href="#"
+                onClick={handleCall}
                 className="px-7 py-3 border border-white/20 text-white rounded-full text-[14px] hover:bg-white/10 transition-all inline-flex items-center gap-2"
               >
-                <Phone size={15} strokeWidth={1.5} /> +91 79975 92222
+                <Phone size={15} strokeWidth={1.5} /> {getPhoneDisplay()}
               </a>
             </div>
           </motion.div>

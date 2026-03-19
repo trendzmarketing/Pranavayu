@@ -3,6 +3,7 @@ import { Link } from "react-router";
 import { ArrowRight, CheckCircle, Briefcase, MessageCircle } from "lucide-react";
 import { useSEO } from "../hooks/useSEO";
 import { buildMedicalWebPageSchema, buildBreadcrumbSchema } from "../seo/schemas";
+import { handleWhatsApp } from "../utils/phoneProtection";
 
 const offerings = [
   {
@@ -99,7 +100,7 @@ export function CorporateWellnessPage() {
                 <ArrowRight size={16} strokeWidth={1.5} />
               </Link>
               <a
-                href="https://wa.me/917997592222"
+                href="#" onClick={handleWhatsApp}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-7 py-3 border border-white/20 text-white/80 rounded-full text-[15px] hover:bg-white/5 hover:border-white/35 transition-all duration-300 hover:-translate-y-[1px]"
@@ -195,7 +196,7 @@ export function CorporateWellnessPage() {
               <ArrowRight size={16} strokeWidth={1.5} />
             </Link>
             <a
-              href="https://wa.me/917997592222"
+              href="#" onClick={handleWhatsApp}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-7 py-3 bg-[#25D366] text-white rounded-full text-[15px] hover:bg-[#20bd59] transition-all duration-300 hover:-translate-y-[1px]"

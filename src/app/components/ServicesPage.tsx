@@ -7,6 +7,7 @@ import {
 } from "lucide-react";
 import { useSEO } from "../hooks/useSEO";
 import { organizationSchema, buildBreadcrumbSchema } from "../seo/schemas";
+import { handleWhatsApp } from "../utils/phoneProtection";
 
 /* ── section helpers ── */
 function SectionDivider() {
@@ -588,7 +589,7 @@ export function ServicesPage() {
                                 Book Consultation
                             </Link>
                             <a
-                                href="https://wa.me/917997592222"
+                                href="#" onClick={handleWhatsApp}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="px-7 py-3.5 bg-[#25D366] text-white rounded-full text-[14px] hover:bg-[#20bd59] transition-all hover:shadow-lg hover:shadow-[#25D366]/25 inline-flex items-center gap-2"

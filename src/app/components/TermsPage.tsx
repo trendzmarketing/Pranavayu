@@ -88,13 +88,11 @@ const sections = [
   },
   {
     title: "11. Contact",
-    content: `For legal queries:
-Email: pranavayurehabilitation@gmail.com
+    content: `For legal queries, please use our contact form.
 
 Pranavayu Rehabilitation Center
 14-1-128, 1st Floor, Nowroji Road
-Maharanipeta, Visakhapatnam – 530002
-Phone: +91 79975 92222 / +91 79975 99222`,
+Maharanipeta, Visakhapatnam – 530002`,
   },
 ];
 

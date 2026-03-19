@@ -4,6 +4,7 @@ import { ArrowLeft, Check, Shield, Users, HelpCircle, ChevronDown, Clock, AlertT
 import { useState } from "react";
 import { useSEO } from "../hooks/useSEO";
 import { buildFaqSchema, buildMedicalWebPageSchema, buildBreadcrumbSchema } from "../seo/schemas";
+import { handleWhatsApp } from "../utils/phoneProtection";
 
 interface TherapyData {
   title: string;
@@ -513,7 +514,7 @@ export function TherapyPage() {
                 Book Consultation
               </Link>
               <a
-                href="https://wa.me/917997592222"
+                href="#" onClick={handleWhatsApp}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-5 py-2.5 border border-white/20 text-white/60 rounded-full text-[13px] hover:bg-white/5 transition-all"
@@ -977,7 +978,7 @@ export function TherapyPage() {
               Book Consultation
             </Link>
             <a
-              href="https://wa.me/917997592222"
+              href="#" onClick={handleWhatsApp}
               target="_blank"
               rel="noopener noreferrer"
               className="px-6 py-3 bg-[#25D366] text-white rounded-full text-[14px] hover:bg-[#20bd59] transition-all hover:shadow-lg hover:shadow-[#25D366]/25"

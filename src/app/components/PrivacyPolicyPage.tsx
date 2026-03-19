@@ -2,6 +2,7 @@ import { motion } from "motion/react";
 import { Link } from "react-router";
 import { Shield, ArrowRight } from "lucide-react";
 import { useSEO } from "../hooks/useSEO";
+import { getPhoneDisplay } from "../utils/phoneProtection";
 
 const sections = [
   {
@@ -134,7 +135,7 @@ This Privacy Policy explains how we collect, use, disclose, store, and protect p
       "Request deletion where legally permissible",
       "Lodge complaints with appropriate authorities",
     ],
-    after: "Requests may be made via email: pranavayurehabilitation@gmail.com",
+    after: "Requests may be made via email through our contact form.",
   },
   {
     title: "10. Cookies & Website Tracking",
@@ -160,9 +161,7 @@ This Privacy Policy explains how we collect, use, disclose, store, and protect p
     title: "13. Contact Information",
     content: `Pranavayu Rehabilitation Center
 14-1-128, 1st Floor, Nowroji Road
-Maharanipeta, Visakhapatnam – 530002
-Phone: +91 79975 92222 / +91 79975 99222
-Email: pranavayurehabilitation@gmail.com`,
+Maharanipeta, Visakhapatnam – 530002`,
   },
 ];
 
